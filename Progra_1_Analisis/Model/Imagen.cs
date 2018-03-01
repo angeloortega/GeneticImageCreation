@@ -51,7 +51,6 @@ namespace Progra_1_Analisis.Model
                 histogramaR[j]= histogramaR[j]/tam;
                 histogramaG[j]= histogramaG[j]/tam;
                 histogramaB[j]= histogramaB[j]/tam;
-                prueba += histogramaR[j];
             }
         }
     }
