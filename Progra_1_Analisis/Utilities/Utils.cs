@@ -55,6 +55,7 @@ namespace Progra_1_Analisis.Utilities
                 singleton.objetivo = new Imagen("objetivo", resizedImage);
                 // display image in picture box  
                 return resizedImage;
+
             }
             return null;
         }
