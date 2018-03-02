@@ -32,5 +32,11 @@ namespace Progra_1_Analisis
         {
             imagenObjetivo.Image = Utils.cargarImagen();
         }
+
+        private void compararBtn_Click(object sender, EventArgs e)
+        {
+            SingletonCache.Instance.poblacion[0].distanciaManhattan(SingletonCache.Instance.objetivo);
+            labelDiferencia.Text =  "" +  (100.00 - SingletonCache.Instance.poblacion[0].diferencia/8);
+        }
     }
 }

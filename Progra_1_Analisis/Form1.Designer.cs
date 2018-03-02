@@ -32,6 +32,8 @@
             this.imagenGenerada = new System.Windows.Forms.PictureBox();
             this.imagenObjetivo = new System.Windows.Forms.PictureBox();
             this.imgLoadBtn = new System.Windows.Forms.Button();
+            this.labelDiferencia = new System.Windows.Forms.Label();
+            this.compararBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imagenGenerada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagenObjetivo)).BeginInit();
             this.SuspendLayout();
@@ -72,11 +74,32 @@
             this.imgLoadBtn.UseVisualStyleBackColor = true;
             this.imgLoadBtn.Click += new System.EventHandler(this.imgLoadBtn_Click);
             // 
+            // labelDiferencia
+            // 
+            this.labelDiferencia.AutoSize = true;
+            this.labelDiferencia.Location = new System.Drawing.Point(305, 82);
+            this.labelDiferencia.Name = "labelDiferencia";
+            this.labelDiferencia.Size = new System.Drawing.Size(35, 13);
+            this.labelDiferencia.TabIndex = 4;
+            this.labelDiferencia.Text = "label1";
+            // 
+            // compararBtn
+            // 
+            this.compararBtn.Location = new System.Drawing.Point(308, 102);
+            this.compararBtn.Name = "compararBtn";
+            this.compararBtn.Size = new System.Drawing.Size(75, 23);
+            this.compararBtn.TabIndex = 5;
+            this.compararBtn.Text = "Comparar";
+            this.compararBtn.UseVisualStyleBackColor = true;
+            this.compararBtn.Click += new System.EventHandler(this.compararBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(452, 339);
+            this.Controls.Add(this.compararBtn);
+            this.Controls.Add(this.labelDiferencia);
             this.Controls.Add(this.imagenObjetivo);
             this.Controls.Add(this.imgLoadBtn);
             this.Controls.Add(this.imagenGenerada);
@@ -87,6 +110,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imagenGenerada)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagenObjetivo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -96,6 +120,8 @@
         private System.Windows.Forms.PictureBox imagenGenerada;
         private System.Windows.Forms.PictureBox imagenObjetivo;
         private System.Windows.Forms.Button imgLoadBtn;
+        private System.Windows.Forms.Label labelDiferencia;
+        private System.Windows.Forms.Button compararBtn;
     }
 }
 

@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+
 namespace Progra_1_Analisis.Model
 {
     public class Imagen
     {
-        string id;
+        public string id;
         double[] histogramaR;
         double[] histogramaG;
         double[] histogramaB;
         double[] histogramaA;
-
+        public double diferencia;
+        public double suma;
         public Imagen(string name, Bitmap bmp)
         {
             int height = bmp.Height;
@@ -44,13 +46,20 @@ namespace Progra_1_Analisis.Model
             }
             //Normalizing so histograms can be comparable
             int tam = height * width;
-            double prueba = 0.00;
             for (int j = 0; j < 256; j++)
             {
-                histogramaA[j]= histogramaA[j]/tam;
-                histogramaR[j]= histogramaR[j]/tam;
-                histogramaG[j]= histogramaG[j]/tam;
-                histogramaB[j]= histogramaB[j]/tam;
+                histogramaA[j] = (histogramaA[j] / tam) * 100;
+                histogramaR[j] = (histogramaR[j] / tam) * 100;
+                histogramaG[j] = (histogramaG[j] / tam) * 100;
+                histogramaB[j] = (histogramaB[j] / tam) * 100;
+                suma += histogramaA[j] + histogramaR[j] + histogramaG[j] + histogramaB[j];
+            }
+        }
+        public void distanciaManhattan(Imagen objetivo)
+        {
+            diferencia = 0;
+            for (int i = 0; i < 256; i++) {
+                diferencia += Math.Abs(histogramaA[i] - objetivo.histogramaA[i]) + Math.Abs(histogramaR[i] - objetivo.histogramaR[i]) + Math.Abs(histogramaG[i] - objetivo.histogramaG[i]) + Math.Abs(histogramaB[i] - objetivo.histogramaB[i]);
             }
         }
     }
