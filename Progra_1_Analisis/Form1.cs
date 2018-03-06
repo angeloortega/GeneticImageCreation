@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Progra_1_Analisis.Utilities;
+using Progra_1_Analisis.Model;
 namespace Progra_1_Analisis
 {
     public partial class Form1 : Form
@@ -35,8 +36,12 @@ namespace Progra_1_Analisis
 
         private void compararBtn_Click(object sender, EventArgs e)
         {
-            SingletonCache.Instance.poblacion[0].distanciaManhattan(SingletonCache.Instance.objetivo);
-            labelDiferencia.Text =  "" +  (100.00 - SingletonCache.Instance.poblacion[0].diferencia/8);
+            
+            SingletonCache.calcularDiferencias();
+            foreach (Imagen rndmImg in SingletonCache.Instance.poblacion) {
+                Console.WriteLine(rndmImg.diferencia);
+            }
+            labelDiferencia.Text =  "" +  (100.00 - SingletonCache.Instance.poblacion[0].diferencia);
         }
     }
 }

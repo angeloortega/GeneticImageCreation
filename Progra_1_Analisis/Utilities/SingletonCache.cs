@@ -10,7 +10,7 @@ namespace Progra_1_Analisis.Utilities
     {
         private static SingletonCache instance;
         public Imagen objetivo;
-        public Imagen[] poblacion;
+        public List<Imagen> poblacion;
        
         private SingletonCache() { }
 
@@ -25,5 +25,13 @@ namespace Progra_1_Analisis.Utilities
         }
 
         //instance methods
+        public static void calcularDiferencias()
+        {
+            foreach (Imagen rndmImg in Instance.poblacion)
+            {
+                rndmImg.calcularDiferencia(Instance.objetivo);
+            }
+            Instance.poblacion.Sort();
+        }
     }
 }

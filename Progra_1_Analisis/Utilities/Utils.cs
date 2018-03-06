@@ -18,7 +18,7 @@ namespace Progra_1_Analisis.Utilities
             int width = 128, height = 128;
             Bitmap bmp = new Bitmap(width, height);
             SingletonCache singleton = SingletonCache.Instance;
-            Imagen[] poblacion = new Imagen[cantidad];
+            List<Imagen> poblacion = new List<Imagen>(cantidad);
             while (cantidad > 0)
             {
 
@@ -37,7 +37,7 @@ namespace Progra_1_Analisis.Utilities
                         bmp.SetPixel(x, y, Color.FromArgb(a, r, g, b));
                     }
                 }
-                poblacion[cantidad - 1] = new Imagen("imagen" + cantidad, bmp);
+                poblacion.Add(new Imagen("imagen" + cantidad, bmp));
                 cantidad--;
             }
             singleton.poblacion = poblacion;

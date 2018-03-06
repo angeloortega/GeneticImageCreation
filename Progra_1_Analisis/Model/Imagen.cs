@@ -7,60 +7,36 @@ using System.Drawing;
 
 namespace Progra_1_Analisis.Model
 {
-    public class Imagen
+    public class Imagen : IComparable<Imagen>
     {
         public string id;
-        double[] histogramaR;
-        double[] histogramaG;
-        double[] histogramaB;
-        double[] histogramaA;
+        private Bitmap image;
+        public HistogramaColor histColor;
+        public HistogramaForma histForma;
         public double diferencia;
-        public double suma;
         public Imagen(string name, Bitmap bmp)
         {
-            int height = bmp.Height;
-            int width = bmp.Width;
-            int aValue;
-            int rValue;
-            int gValue;
-            int bValue;
             id = name;
-            histogramaR = new double[256];
-            histogramaG = new double[256];
-            histogramaB = new double[256];
-            histogramaA = new double[256];
-
-            for (int y = 0; y < height; y++)
+            histColor = new HistogramaColor(bmp);
+            histForma = new HistogramaForma(bmp);
+            if (name.Equals("objetivo"))
             {
-                for (int x = 0; x < width; x++)
-                {
-                    aValue = bmp.GetPixel(x, y).A;
-                    rValue = bmp.GetPixel(x, y).R;
-                    gValue = bmp.GetPixel(x, y).G;
-                    bValue = bmp.GetPixel(x, y).B;
-                    histogramaA[aValue]++;
-                    histogramaR[rValue]++;
-                    histogramaG[gValue]++;
-                    histogramaB[bValue]++;
-                }
+                image = Utilities.Utils.PadImage(bmp);
+                image = Utilities.Utils.PadImage(image);
             }
-            //Normalizing so histograms can be comparable
-            int tam = height * width;
-            for (int j = 0; j < 256; j++)
-            {
-                histogramaA[j] = (histogramaA[j] / tam) * 100;
-                histogramaR[j] = (histogramaR[j] / tam) * 100;
-                histogramaG[j] = (histogramaG[j] / tam) * 100;
-                histogramaB[j] = (histogramaB[j] / tam) * 100;
-                suma += histogramaA[j] + histogramaR[j] + histogramaG[j] + histogramaB[j];
+            else {
+                image = bmp;
             }
         }
-        public void distanciaManhattan(Imagen objetivo)
+        public void calcularDiferencia(Imagen objetivo) {
+            diferencia = histColor.distanciaManhattan(objetivo) * 2;
+            diferencia += histForma.distanciaManhattan(objetivo);
+            diferencia /= 3;
+        }
+
+        public int CompareTo(Imagen other)
         {
-            diferencia = 0;
-            for (int i = 0; i < 256; i++) {
-                diferencia += Math.Abs(histogramaA[i] - objetivo.histogramaA[i]) + Math.Abs(histogramaR[i] - objetivo.histogramaR[i]) + Math.Abs(histogramaG[i] - objetivo.histogramaG[i]) + Math.Abs(histogramaB[i] - objetivo.histogramaB[i]);
-            }
+            return diferencia.CompareTo(other.diferencia);
         }
     }
 }
