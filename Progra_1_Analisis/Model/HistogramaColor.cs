@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Progra_1_Analisis.Model
 {
-    //giulliano es crack
     public class HistogramaColor : Histograma
+        //giulla no es el crack, angelo es el crack
     {
         public double[] histogramaR;
         public double[] histogramaG;
