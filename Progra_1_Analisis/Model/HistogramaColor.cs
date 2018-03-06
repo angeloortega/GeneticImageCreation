@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Progra_1_Analisis.Model
 {
+    //giulliano es crack
     public class HistogramaColor : Histograma
     {
         public double[] histogramaR;
