@@ -19,14 +19,7 @@ namespace Progra_1_Analisis.Model
             id = name;
             histColor = new HistogramaColor(bmp);
             histForma = new HistogramaForma(bmp);
-            if (name.Equals("objetivo"))
-            {
-                image = Utilities.Utils.PadImage(bmp);
-                image = Utilities.Utils.PadImage(image);
-            }
-            else {
-                image = bmp;
-            }
+            image = bmp;
         }
         public void calcularDiferencia(Imagen objetivo) {
             diferencia = histColor.distanciaManhattan(objetivo) * 2;

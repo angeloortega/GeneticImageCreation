@@ -50,7 +50,7 @@ namespace Progra_1_Analisis.Utilities
         
             if (open.ShowDialog() == DialogResult.OK)
             {
-                Bitmap resizedImage = PadImage(resizeImage(128, 128, new Bitmap(open.FileName)));
+                Bitmap resizedImage = resizeImage(128,128,PadImage(new Bitmap(open.FileName)));
                 SingletonCache singleton = SingletonCache.Instance;
                 singleton.objetivo = new Imagen("objetivo", resizedImage);
                 // display image in picture box  
