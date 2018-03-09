@@ -41,7 +41,17 @@ namespace Progra_1_Analisis
             foreach (Imagen rndmImg in SingletonCache.Instance.poblacion) {
                 Console.WriteLine(rndmImg.diferencia);
             }
-            labelDiferencia.Text =  "" +  (100.00 - SingletonCache.Instance.poblacion[0].diferencia);
+            indMasAptoGen.Text =  "" +  (100.00 - SingletonCache.Instance.poblacion[0].diferencia);
+        }
+
+        private void statBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

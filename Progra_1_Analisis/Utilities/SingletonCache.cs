@@ -11,7 +11,12 @@ namespace Progra_1_Analisis.Utilities
         private static SingletonCache instance;
         public Imagen objetivo;
         public List<Imagen> poblacion;
-       
+        int tamPoblacion;
+        int cantidadItereaciones;
+        int porcMutacion;
+        int porcCruses;
+        int porcMenosApt;
+
         private SingletonCache() { }
 
         public static SingletonCache Instance
