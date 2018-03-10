@@ -10,7 +10,7 @@ namespace Progra_1_Analisis.Model
     public class Imagen : IComparable<Imagen>
     {
         public string id;
-        private Bitmap image;
+        public Bitmap image;
         public HistogramaColor histColor;
         public HistogramaForma histForma;
         public double diferencia;
@@ -22,8 +22,8 @@ namespace Progra_1_Analisis.Model
             image = bmp;
         }
         public void calcularDiferencia(Imagen objetivo) {
-            diferencia = histColor.distanciaManhattan(objetivo) * 2;
-            diferencia += histForma.distanciaManhattan(objetivo);
+            diferencia = histColor.distanciaManhattan(objetivo);
+            diferencia += histForma.distanciaManhattan(objetivo) * 2;
             diferencia /= 3;
         }
 

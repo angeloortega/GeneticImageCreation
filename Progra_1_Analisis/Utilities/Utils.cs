@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
-using System.Drawing.Imaging;
 using Progra_1_Analisis.Model;
 using System.Windows.Forms;
 
@@ -12,13 +8,29 @@ namespace Progra_1_Analisis.Utilities
 {
     class Utils
     {
-        public static Bitmap generarImagenAleatoria(int cantidad) {
+        public static  bool IsDigitsOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if ((c < '0' || c > '9') && c != '.')
+                    return false;
+            }
+
+            return true;
+        }
+        public static void generarImagenAleatoria(int cantidad) {
             //random number
+            
             Random rand = new Random();
-            int width = 128, height = 128;
+            int width = 32, height = 32;
             Bitmap bmp = new Bitmap(width, height);
             SingletonCache singleton = SingletonCache.Instance;
             List<Imagen> poblacion = new List<Imagen>(cantidad);
+            int a = rand.Next(256);
+            int r = rand.Next(256);
+            int g = rand.Next(256);
+            int b = rand.Next(256);
+            bool isNotPng = !SingletonCache.Instance.objetivo.id.Contains("png");
             while (cantidad > 0)
             {
 
@@ -28,20 +40,25 @@ namespace Progra_1_Analisis.Utilities
                     for (int x = 0; x < width; x++)
                     {
                         //generate random ARGB value
-                        int a = rand.Next(256);
-                        int r = rand.Next(256);
-                        int g = rand.Next(256);
-                        int b = rand.Next(256);
+                        a = rand.Next(256);
+
+                        if (isNotPng)
+                        {
+                            a = 255;
+                        }            
+                        r = rand.Next(256);
+                        g = rand.Next(256);
+                        b = rand.Next(256);
 
                         //set ARGB value
                         bmp.SetPixel(x, y, Color.FromArgb(a, r, g, b));
                     }
                 }
-                poblacion.Add(new Imagen("imagen" + cantidad, bmp));
+                poblacion.Add(new Imagen("" + cantidad, bmp));
                 cantidad--;
             }
+            
             singleton.poblacion = poblacion;
-            return bmp;
         }
         public static Bitmap cargarImagen()
         {
@@ -52,7 +69,7 @@ namespace Progra_1_Analisis.Utilities
             {
                 Bitmap resizedImage = resizeImage(128,128,PadImage(new Bitmap(open.FileName)));
                 SingletonCache singleton = SingletonCache.Instance;
-                singleton.objetivo = new Imagen("objetivo", resizedImage);
+                singleton.objetivo = new Imagen("objetivo" + open.FileName.Split('.')[1], resizedImage);
                 // display image in picture box  
                 return resizedImage;
 
@@ -73,7 +90,7 @@ namespace Progra_1_Analisis.Utilities
             Bitmap squareImage = new Bitmap(squareSize.Width, squareSize.Height);
             using (Graphics graphics = Graphics.FromImage(squareImage))
             {
-                graphics.FillRectangle(Brushes.Transparent, 0, 0, squareSize.Width, squareSize.Height);
+                graphics.FillRectangle(Brushes.White, 0, 0, squareSize.Width, squareSize.Height);
                 graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
                 graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
                 graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;

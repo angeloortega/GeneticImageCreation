@@ -1,8 +1,5 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Progra_1_Analisis.Model;
 namespace Progra_1_Analisis.Utilities
 {
@@ -11,12 +8,18 @@ namespace Progra_1_Analisis.Utilities
         private static SingletonCache instance;
         public Imagen objetivo;
         public List<Imagen> poblacion;
-        int tamPoblacion;
-        int cantidadItereaciones;
-        int porcMutacion;
-        int porcCruses;
-        int porcMenosApt;
-
+        public int tamPoblacion;
+        public int numGeneracion = 0;
+        public int cantidadItereaciones;
+        public double porcMutacion;
+        public double porcCruses;
+        public double porcMenosApt;
+        public Imagen indMasAptoGen;
+        public Imagen indMenosAptoGen;
+        public double indPromedioAptoGen;
+        public Imagen indMasAptoHist;
+        public Imagen indMenosAptoHist;
+        public double indPromedioAptoHist;
         private SingletonCache() { }
 
         public static SingletonCache Instance
@@ -28,7 +31,21 @@ namespace Progra_1_Analisis.Utilities
                 return instance;
             }
         }
-
+        public static double getDiferenciaPromedio() {
+            double diferencia = 0;
+            foreach (Imagen rndmImg in Instance.poblacion)
+            {
+                diferencia += rndmImg.diferencia;
+            }
+            if (Instance.numGeneracion < 1)
+            {
+                Instance.indPromedioAptoHist = diferencia / Instance.tamPoblacion;
+            }
+            else {
+                Instance.indPromedioAptoHist = (Instance.indPromedioAptoHist + (diferencia / Instance.tamPoblacion))/2;
+            }
+            return diferencia / Instance.tamPoblacion;
+        }
         //instance methods
         public static void calcularDiferencias()
         {
@@ -37,6 +54,11 @@ namespace Progra_1_Analisis.Utilities
                 rndmImg.calcularDiferencia(Instance.objetivo);
             }
             Instance.poblacion.Sort();
+            if (Instance.numGeneracion < 1)
+            {
+                Instance.indMenosAptoHist = Instance.poblacion[Instance.tamPoblacion - 1];
+                Instance.indMasAptoHist = Instance.poblacion[0];
+            }
         }
     }
 }

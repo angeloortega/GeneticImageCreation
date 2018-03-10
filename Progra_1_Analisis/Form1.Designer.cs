@@ -32,36 +32,35 @@
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label7;
-            System.Windows.Forms.Label label13;
-            this.button1 = new System.Windows.Forms.Button();
+            this.lblGenNumber = new System.Windows.Forms.Label();
             this.imagenGenerada = new System.Windows.Forms.PictureBox();
             this.imagenObjetivo = new System.Windows.Forms.PictureBox();
             this.imgLoadBtn = new System.Windows.Forms.Button();
             this.indMasAptoGen = new System.Windows.Forms.Label();
             this.compararBtn = new System.Windows.Forms.Button();
             this.statBox = new System.Windows.Forms.GroupBox();
-            this.indPromedioGen = new System.Windows.Forms.Label();
             this.indMenosGen = new System.Windows.Forms.Label();
+            this.indPromedioGen = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.indMenosHistor = new System.Windows.Forms.Label();
             this.indPromedioHistor = new System.Windows.Forms.Label();
             this.indMasHistor = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.entryMenosApt = new System.Windows.Forms.TextBox();
+            this.entryCruces = new System.Windows.Forms.TextBox();
+            this.entryMutacion = new System.Windows.Forms.TextBox();
+            this.entryPoblacion = new System.Windows.Forms.TextBox();
+            this.entryIteraciones = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.entryIteraciones = new System.Windows.Forms.TextBox();
-            this.entryPoblacion = new System.Windows.Forms.TextBox();
-            this.entryMutacion = new System.Windows.Forms.TextBox();
-            this.entryCruces = new System.Windows.Forms.TextBox();
-            this.entryMenosApt = new System.Windows.Forms.TextBox();
+            this.sigGeneracion = new System.Windows.Forms.Button();
             objetivoLbl = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
-            label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imagenGenerada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagenObjetivo)).BeginInit();
             this.statBox.SuspendLayout();
@@ -69,15 +68,50 @@
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // objetivoLbl
             // 
-            this.button1.Location = new System.Drawing.Point(354, 174);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 38);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Generar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            objetivoLbl.AutoSize = true;
+            objetivoLbl.Location = new System.Drawing.Point(21, 37);
+            objetivoLbl.Name = "objetivoLbl";
+            objetivoLbl.Size = new System.Drawing.Size(87, 13);
+            objetivoLbl.TabIndex = 6;
+            objetivoLbl.Text = "Imagen Objetivo:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(331, 37);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(116, 13);
+            label1.TabIndex = 7;
+            label1.Text = "Imagen Más Apta Gen:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(9, 47);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(120, 13);
+            label2.TabIndex = 7;
+            label2.Text = "Porcentajes de similitud:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(9, 45);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(120, 13);
+            label7.TabIndex = 7;
+            label7.Text = "Porcentajes de similitud:";
+            // 
+            // lblGenNumber
+            // 
+            this.lblGenNumber.AutoSize = true;
+            this.lblGenNumber.Location = new System.Drawing.Point(9, 26);
+            this.lblGenNumber.Name = "lblGenNumber";
+            this.lblGenNumber.Size = new System.Drawing.Size(72, 13);
+            this.lblGenNumber.TabIndex = 10;
+            this.lblGenNumber.Text = "# Generación";
             // 
             // imagenGenerada
             // 
@@ -116,35 +150,17 @@
             // 
             // compararBtn
             // 
-            this.compararBtn.Location = new System.Drawing.Point(503, 387);
+            this.compararBtn.Location = new System.Drawing.Point(543, 387);
             this.compararBtn.Name = "compararBtn";
             this.compararBtn.Size = new System.Drawing.Size(110, 23);
             this.compararBtn.TabIndex = 5;
             this.compararBtn.Text = "Empezar Evolución";
             this.compararBtn.UseVisualStyleBackColor = true;
-            this.compararBtn.Click += new System.EventHandler(this.compararBtn_Click);
-            // 
-            // objetivoLbl
-            // 
-            objetivoLbl.AutoSize = true;
-            objetivoLbl.Location = new System.Drawing.Point(21, 37);
-            objetivoLbl.Name = "objetivoLbl";
-            objetivoLbl.Size = new System.Drawing.Size(87, 13);
-            objetivoLbl.TabIndex = 6;
-            objetivoLbl.Text = "Imagen Objetivo:";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(331, 37);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(116, 13);
-            label1.TabIndex = 7;
-            label1.Text = "Imagen Más Apta Gen:";
+            this.compararBtn.Click += new System.EventHandler(this.iniciarEvolucion);
             // 
             // statBox
             // 
-            this.statBox.Controls.Add(label13);
+            this.statBox.Controls.Add(this.lblGenNumber);
             this.statBox.Controls.Add(this.indMenosGen);
             this.statBox.Controls.Add(this.indPromedioGen);
             this.statBox.Controls.Add(label2);
@@ -157,14 +173,14 @@
             this.statBox.Text = "Estadísticas Generación Actual";
             this.statBox.Enter += new System.EventHandler(this.statBox_Enter);
             // 
-            // label2
+            // indMenosGen
             // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(9, 47);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(120, 13);
-            label2.TabIndex = 7;
-            label2.Text = "Porcentajes de similitud:";
+            this.indMenosGen.AutoSize = true;
+            this.indMenosGen.Location = new System.Drawing.Point(30, 116);
+            this.indMenosGen.Name = "indMenosGen";
+            this.indMenosGen.Size = new System.Drawing.Size(111, 13);
+            this.indMenosGen.TabIndex = 9;
+            this.indMenosGen.Text = "Individuo menos apto:";
             // 
             // indPromedioGen
             // 
@@ -174,15 +190,6 @@
             this.indPromedioGen.Size = new System.Drawing.Size(99, 13);
             this.indPromedioGen.TabIndex = 8;
             this.indPromedioGen.Text = "Individuo promedio:";
-            // 
-            // indMenosGen
-            // 
-            this.indMenosGen.AutoSize = true;
-            this.indMenosGen.Location = new System.Drawing.Point(30, 116);
-            this.indMenosGen.Name = "indMenosGen";
-            this.indMenosGen.Size = new System.Drawing.Size(111, 13);
-            this.indMenosGen.TabIndex = 9;
-            this.indMenosGen.Text = "Individuo menos apto:";
             // 
             // groupBox1
             // 
@@ -215,15 +222,6 @@
             this.indPromedioHistor.TabIndex = 8;
             this.indPromedioHistor.Text = "Individuo promedio:";
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(9, 45);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(120, 13);
-            label7.TabIndex = 7;
-            label7.Text = "Porcentajes de similitud:";
-            // 
             // indMasHistor
             // 
             this.indMasHistor.AutoSize = true;
@@ -252,6 +250,60 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Configuraciones:";
             // 
+            // entryMenosApt
+            // 
+            this.entryMenosApt.Location = new System.Drawing.Point(88, 121);
+            this.entryMenosApt.Name = "entryMenosApt";
+            this.entryMenosApt.Size = new System.Drawing.Size(99, 20);
+            this.entryMenosApt.TabIndex = 15;
+            // 
+            // entryCruces
+            // 
+            this.entryCruces.Location = new System.Drawing.Point(88, 95);
+            this.entryCruces.Name = "entryCruces";
+            this.entryCruces.Size = new System.Drawing.Size(99, 20);
+            this.entryCruces.TabIndex = 14;
+            // 
+            // entryMutacion
+            // 
+            this.entryMutacion.Location = new System.Drawing.Point(88, 69);
+            this.entryMutacion.Name = "entryMutacion";
+            this.entryMutacion.Size = new System.Drawing.Size(99, 20);
+            this.entryMutacion.TabIndex = 13;
+            // 
+            // entryPoblacion
+            // 
+            this.entryPoblacion.Location = new System.Drawing.Point(88, 44);
+            this.entryPoblacion.Name = "entryPoblacion";
+            this.entryPoblacion.Size = new System.Drawing.Size(99, 20);
+            this.entryPoblacion.TabIndex = 12;
+            this.entryPoblacion.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // entryIteraciones
+            // 
+            this.entryIteraciones.Location = new System.Drawing.Point(88, 19);
+            this.entryIteraciones.Name = "entryIteraciones";
+            this.entryIteraciones.Size = new System.Drawing.Size(99, 20);
+            this.entryIteraciones.TabIndex = 11;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(9, 124);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(71, 13);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "% Menos apt:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(9, 98);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(54, 13);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "% Cruces:";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -279,74 +331,22 @@
             this.label12.TabIndex = 4;
             this.label12.Text = "Tam población:";
             // 
-            // label13
+            // sigGeneracion
             // 
-            label13.AutoSize = true;
-            label13.Location = new System.Drawing.Point(9, 26);
-            label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(72, 13);
-            label13.TabIndex = 10;
-            label13.Text = "# Generación";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(9, 98);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 13);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "% Cruces:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(9, 124);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(71, 13);
-            this.label14.TabIndex = 10;
-            this.label14.Text = "% Menos apt:";
-            // 
-            // entryIteraciones
-            // 
-            this.entryIteraciones.Location = new System.Drawing.Point(88, 19);
-            this.entryIteraciones.Name = "entryIteraciones";
-            this.entryIteraciones.Size = new System.Drawing.Size(99, 20);
-            this.entryIteraciones.TabIndex = 11;
-            // 
-            // entryPoblacion
-            // 
-            this.entryPoblacion.Location = new System.Drawing.Point(88, 44);
-            this.entryPoblacion.Name = "entryPoblacion";
-            this.entryPoblacion.Size = new System.Drawing.Size(99, 20);
-            this.entryPoblacion.TabIndex = 12;
-            this.entryPoblacion.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // entryMutacion
-            // 
-            this.entryMutacion.Location = new System.Drawing.Point(88, 69);
-            this.entryMutacion.Name = "entryMutacion";
-            this.entryMutacion.Size = new System.Drawing.Size(99, 20);
-            this.entryMutacion.TabIndex = 13;
-            // 
-            // entryCruces
-            // 
-            this.entryCruces.Location = new System.Drawing.Point(88, 95);
-            this.entryCruces.Name = "entryCruces";
-            this.entryCruces.Size = new System.Drawing.Size(99, 20);
-            this.entryCruces.TabIndex = 14;
-            // 
-            // entryMenosApt
-            // 
-            this.entryMenosApt.Location = new System.Drawing.Point(88, 121);
-            this.entryMenosApt.Name = "entryMenosApt";
-            this.entryMenosApt.Size = new System.Drawing.Size(99, 20);
-            this.entryMenosApt.TabIndex = 15;
+            this.sigGeneracion.Location = new System.Drawing.Point(457, 387);
+            this.sigGeneracion.Name = "sigGeneracion";
+            this.sigGeneracion.Size = new System.Drawing.Size(83, 23);
+            this.sigGeneracion.TabIndex = 11;
+            this.sigGeneracion.Text = "Siguiente Gen";
+            this.sigGeneracion.UseVisualStyleBackColor = true;
+            this.sigGeneracion.Click += new System.EventHandler(this.sigGeneracion_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(665, 417);
+            this.Controls.Add(this.sigGeneracion);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statBox);
@@ -356,7 +356,6 @@
             this.Controls.Add(this.imagenObjetivo);
             this.Controls.Add(this.imgLoadBtn);
             this.Controls.Add(this.imagenGenerada);
-            this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -374,8 +373,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox imagenGenerada;
         private System.Windows.Forms.Button imgLoadBtn;
         private System.Windows.Forms.Button compararBtn;
@@ -399,6 +396,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblGenNumber;
+        private System.Windows.Forms.Button sigGeneracion;
     }
 }
 

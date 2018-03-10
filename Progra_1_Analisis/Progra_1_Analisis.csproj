@@ -51,6 +51,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logic\AlgoritmoGenetico.cs" />
     <Compile Include="Model\Histograma.cs" />
     <Compile Include="Model\HistogramaColor.cs" />
     <Compile Include="Model\HistogramaForma.cs" />
