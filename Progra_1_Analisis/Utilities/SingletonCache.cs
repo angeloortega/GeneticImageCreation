@@ -42,7 +42,7 @@ namespace Progra_1_Analisis.Utilities
                 Instance.indPromedioAptoHist = diferencia / Instance.tamPoblacion;
             }
             else {
-                Instance.indPromedioAptoHist = (Instance.indPromedioAptoHist + (diferencia / Instance.tamPoblacion))/2;
+                Instance.indPromedioAptoHist = (Instance.indPromedioAptoHist + (diferencia / Instance.tamPoblacion))/Instance.numGeneracion;
             }
             return diferencia / Instance.tamPoblacion;
         }

@@ -23,8 +23,8 @@ namespace Progra_1_Analisis.Model
         }
         public void calcularDiferencia(Imagen objetivo) {
             diferencia = histColor.distanciaManhattan(objetivo);
-            diferencia += histForma.distanciaManhattan(objetivo) * 2;
-            diferencia /= 3;
+            diferencia += histForma.distanciaManhattan(objetivo);
+            diferencia /= 2 ;
         }
 
         public int CompareTo(Imagen other)
