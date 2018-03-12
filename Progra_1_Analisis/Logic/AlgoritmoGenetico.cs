@@ -164,10 +164,10 @@ namespace Progra_1_Analisis.Logic
             }
             return p2;
         }
-        public static void primeraGeneracion()
+        public static void primeraGeneracion(int pixel)
         {
             SingletonCache singleton = SingletonCache.Instance;
-            Utils.generarImagenAleatoria(singleton.tamPoblacion);
+            Utils.generarImagenAleatoria(singleton.tamPoblacion, pixel);
             SingletonCache.calcularDiferencias();
             singleton.indMasAptoGen = singleton.poblacion[0];
             singleton.indPromedioAptoGen = SingletonCache.getDiferenciaPromedio();

@@ -15,6 +15,7 @@ namespace Progra_1_Analisis
 {
     public partial class Form1 : Form
     {
+        public int pixel = 32;
         public Form1()
         {
             InitializeComponent();
@@ -28,13 +29,32 @@ namespace Progra_1_Analisis
 
         private void imgLoadBtn_Click(object sender, EventArgs e)
         {
-            imagenObjetivo.Image = Utils.cargarImagen();
+            if (pixel128.Checked)
+            {
+                pixel = 128;
+                imagenObjetivo.Image = Utils.cargarImagen(128);
+            }
+            else if (pixel64.Checked)
+            {
+                pixel = 64;
+                imagenObjetivo.Image = Utils.cargarImagen(64);
+            }
+            else if (pixel32.Checked)
+            {
+                pixel = 32;
+                imagenObjetivo.Image = Utils.cargarImagen(32);
+            }
+            else
+            {
+                MessageBox.Show("Por favor indique la resolucion en la que desea procesar la imagen.", "Error en las configuraciones",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void iniciarEvolucion(object sender, EventArgs e)
         {
-
-            
+            List<Imagen> imagenesFinales = new List<Imagen>();
+            int indiceImagenes = 0;
             if (!validateInput()) {
                 MessageBox.Show("Por favor inserte parámetros correctos.", "Error en las configuraciones",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -52,14 +72,19 @@ namespace Progra_1_Analisis
             singleton.porcMenosApt = float.Parse(entryMenosApt.Text, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
             singleton.porcMutacion = float.Parse(entryMutacion.Text, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
             singleton.cantidadItereaciones = Int32.Parse(entryIteraciones.Text);
-            AlgoritmoGenetico.primeraGeneracion();
+            AlgoritmoGenetico.primeraGeneracion(pixel);
             imagenGenerada.Image = singleton.poblacion[0].image;
             updateStatistics();
             bool trampa = conTrampaCheck.Checked;
             if (trampa)
             {
-                for (int i = 1; i < SingletonCache.Instance.cantidadItereaciones; i++)
+                for (int i = 1; i < SingletonCache.Instance.cantidadItereaciones+1; i++)
                 {
+                    if ((100.00 - singleton.poblacion[0].diferencia) >= 95)
+                    {
+                        break;
+                    }
+                    
                     trampa = false;
                     if (i % 5 == 0)
                     {
@@ -68,13 +93,23 @@ namespace Progra_1_Analisis
                     AlgoritmoGenetico.siguienteGeneracion(trampa);
                     SingletonCache.Instance.numGeneracion++;
                     updateStatistics();
+                    if (i % (SingletonCache.Instance.cantidadItereaciones / 10) == 0)
+                    {
+                        imagenesFinales.Add(SingletonCache.Instance.indMasAptoGen);
+                        indiceImagenes++;
+                    }
                 }
             }
             else {
-                int boosts = (SingletonCache.Instance.cantidadItereaciones / 10);
+                int boosts = (SingletonCache.Instance.cantidadItereaciones / 5);
                 Console.WriteLine(boosts);
-                for (int i = 1; i < SingletonCache.Instance.cantidadItereaciones; i++)
+                for (int i = 1; i < SingletonCache.Instance.cantidadItereaciones+1; i++)
                 {
+                    if ((100.00 - singleton.poblacion[0].diferencia) >= 95)
+                    {
+                        break;
+                    }
+                    
                     trampa = false;
                     if (i % boosts == 0)
                     {
@@ -83,9 +118,29 @@ namespace Progra_1_Analisis
                     AlgoritmoGenetico.siguienteGeneracion(trampa);
                     SingletonCache.Instance.numGeneracion++;
                     updateStatistics();
+                    if (i % (SingletonCache.Instance.cantidadItereaciones / 10) == 0)
+                    {
+                        imagenesFinales.Add(SingletonCache.Instance.indMasAptoGen);
+                        indiceImagenes++;
+                    }
                 }
-            }
             
+            
+            }
+            Form2 muestraResultados = new Form2();
+            muestraResultados.pictureBox1.Image = (imagenesFinales[0].image);
+            muestraResultados.pictureBox2.Image = (imagenesFinales[1].image);
+            muestraResultados.pictureBox3.Image = (imagenesFinales[2].image);
+            muestraResultados.pictureBox4.Image = (imagenesFinales[3].image);
+            muestraResultados.pictureBox5.Image = (imagenesFinales[4].image);
+            muestraResultados.pictureBox6.Image = (imagenesFinales[5].image);
+            muestraResultados.pictureBox7.Image = (imagenesFinales[6].image);
+            muestraResultados.pictureBox8.Image = (imagenesFinales[7].image);
+            muestraResultados.pictureBox9.Image = (imagenesFinales[8].image);
+            muestraResultados.pictureBox10.Image = (imagenesFinales[9].image);
+            muestraResultados.Visible = true;
+            this.Visible = false;
+            Console.WriteLine("Deberia pasar algo");
 
         }
         private void updateStatistics()
@@ -147,5 +202,14 @@ namespace Progra_1_Analisis
 
         }
 
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

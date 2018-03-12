@@ -18,11 +18,11 @@ namespace Progra_1_Analisis.Utilities
 
             return true;
         }
-        public static void generarImagenAleatoria(int cantidad) {
+        public static void generarImagenAleatoria(int cantidad, int pixel) {
             //random number
             
             Random rand = new Random();
-            int width = 32, height = 32;
+            int width = pixel, height = pixel;
             Bitmap bmp = new Bitmap(width, height);
             SingletonCache singleton = SingletonCache.Instance;
             List<Imagen> poblacion = new List<Imagen>(cantidad);
@@ -53,14 +53,14 @@ namespace Progra_1_Analisis.Utilities
             
             singleton.poblacion = poblacion;
         }
-        public static Bitmap cargarImagen()
+        public static Bitmap cargarImagen(int pixel)
         {
             OpenFileDialog open = new OpenFileDialog();
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
         
             if (open.ShowDialog() == DialogResult.OK)
             {
-                Bitmap resizedImage = resizeImage(32,32,PadImage(new Bitmap(open.FileName)));
+                Bitmap resizedImage = resizeImage(pixel,pixel,PadImage(new Bitmap(open.FileName)));
                 SingletonCache singleton = SingletonCache.Instance;
                 singleton.objetivo = new Imagen("objetivo" + open.FileName.Split('.')[1], resizedImage);
                 // display image in picture box  

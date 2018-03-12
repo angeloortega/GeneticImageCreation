@@ -32,6 +32,7 @@
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label7;
+            System.Windows.Forms.Label label3;
             this.lblGenNumber = new System.Windows.Forms.Label();
             this.imagenGenerada = new System.Windows.Forms.PictureBox();
             this.imagenObjetivo = new System.Windows.Forms.PictureBox();
@@ -57,15 +58,19 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.conTrampaCheck = new System.Windows.Forms.CheckBox();
             this.DistanciaGCheck = new System.Windows.Forms.CheckBox();
             this.DistanciaManCheck = new System.Windows.Forms.CheckBox();
             this.histColorCheck = new System.Windows.Forms.CheckBox();
             this.histFormaCheck = new System.Windows.Forms.CheckBox();
-            this.conTrampaCheck = new System.Windows.Forms.CheckBox();
+            this.pixel32 = new System.Windows.Forms.RadioButton();
+            this.pixel64 = new System.Windows.Forms.RadioButton();
+            this.pixel128 = new System.Windows.Forms.RadioButton();
             objetivoLbl = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imagenGenerada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagenObjetivo)).BeginInit();
             this.statBox.SuspendLayout();
@@ -77,7 +82,7 @@
             // objetivoLbl
             // 
             objetivoLbl.AutoSize = true;
-            objetivoLbl.Location = new System.Drawing.Point(21, 37);
+            objetivoLbl.Location = new System.Drawing.Point(21, 47);
             objetivoLbl.Name = "objetivoLbl";
             objetivoLbl.Size = new System.Drawing.Size(87, 13);
             objetivoLbl.TabIndex = 6;
@@ -86,7 +91,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(331, 37);
+            label1.Location = new System.Drawing.Point(452, 40);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(116, 13);
             label1.TabIndex = 7;
@@ -121,7 +126,7 @@
             // 
             // imagenGenerada
             // 
-            this.imagenGenerada.Location = new System.Drawing.Point(453, 12);
+            this.imagenGenerada.Location = new System.Drawing.Point(455, 56);
             this.imagenGenerada.Name = "imagenGenerada";
             this.imagenGenerada.Size = new System.Drawing.Size(200, 200);
             this.imagenGenerada.TabIndex = 1;
@@ -129,7 +134,7 @@
             // 
             // imagenObjetivo
             // 
-            this.imagenObjetivo.Location = new System.Drawing.Point(114, 12);
+            this.imagenObjetivo.Location = new System.Drawing.Point(114, 47);
             this.imagenObjetivo.Name = "imagenObjetivo";
             this.imagenObjetivo.Size = new System.Drawing.Size(200, 200);
             this.imagenObjetivo.TabIndex = 3;
@@ -137,7 +142,7 @@
             // 
             // imgLoadBtn
             // 
-            this.imgLoadBtn.Location = new System.Drawing.Point(12, 174);
+            this.imgLoadBtn.Location = new System.Drawing.Point(12, 209);
             this.imgLoadBtn.Name = "imgLoadBtn";
             this.imgLoadBtn.Size = new System.Drawing.Size(96, 38);
             this.imgLoadBtn.TabIndex = 2;
@@ -156,7 +161,7 @@
             // 
             // compararBtn
             // 
-            this.compararBtn.Location = new System.Drawing.Point(543, 387);
+            this.compararBtn.Location = new System.Drawing.Point(543, 431);
             this.compararBtn.Name = "compararBtn";
             this.compararBtn.Size = new System.Drawing.Size(110, 23);
             this.compararBtn.TabIndex = 5;
@@ -171,7 +176,7 @@
             this.statBox.Controls.Add(this.indPromedioGen);
             this.statBox.Controls.Add(label2);
             this.statBox.Controls.Add(this.indMasAptoGen);
-            this.statBox.Location = new System.Drawing.Point(12, 218);
+            this.statBox.Location = new System.Drawing.Point(12, 262);
             this.statBox.Name = "statBox";
             this.statBox.Size = new System.Drawing.Size(218, 163);
             this.statBox.TabIndex = 8;
@@ -203,7 +208,7 @@
             this.groupBox1.Controls.Add(this.indPromedioHistor);
             this.groupBox1.Controls.Add(label7);
             this.groupBox1.Controls.Add(this.indMasHistor);
-            this.groupBox1.Location = new System.Drawing.Point(236, 218);
+            this.groupBox1.Location = new System.Drawing.Point(236, 262);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(218, 163);
             this.groupBox1.TabIndex = 9;
@@ -249,7 +254,7 @@
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Location = new System.Drawing.Point(460, 218);
+            this.groupBox2.Location = new System.Drawing.Point(462, 262);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(193, 163);
             this.groupBox2.TabIndex = 10;
@@ -344,12 +349,22 @@
             this.groupBox3.Controls.Add(this.DistanciaManCheck);
             this.groupBox3.Controls.Add(this.histColorCheck);
             this.groupBox3.Controls.Add(this.histFormaCheck);
-            this.groupBox3.Location = new System.Drawing.Point(320, 53);
+            this.groupBox3.Location = new System.Drawing.Point(320, 88);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(127, 159);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Calculo de diferencias:";
+            // 
+            // conTrampaCheck
+            // 
+            this.conTrampaCheck.AutoSize = true;
+            this.conTrampaCheck.Location = new System.Drawing.Point(14, 129);
+            this.conTrampaCheck.Name = "conTrampaCheck";
+            this.conTrampaCheck.Size = new System.Drawing.Size(86, 17);
+            this.conTrampaCheck.TabIndex = 4;
+            this.conTrampaCheck.Text = "Con trampa?";
+            this.conTrampaCheck.UseVisualStyleBackColor = true;
             // 
             // DistanciaGCheck
             // 
@@ -391,21 +406,59 @@
             this.histFormaCheck.Text = "Hist. Forma";
             this.histFormaCheck.UseVisualStyleBackColor = true;
             // 
-            // conTrampaCheck
+            // pixel32
             // 
-            this.conTrampaCheck.AutoSize = true;
-            this.conTrampaCheck.Location = new System.Drawing.Point(14, 129);
-            this.conTrampaCheck.Name = "conTrampaCheck";
-            this.conTrampaCheck.Size = new System.Drawing.Size(86, 17);
-            this.conTrampaCheck.TabIndex = 4;
-            this.conTrampaCheck.Text = "Con trampa?";
-            this.conTrampaCheck.UseVisualStyleBackColor = true;
+            this.pixel32.AutoSize = true;
+            this.pixel32.Location = new System.Drawing.Point(350, 22);
+            this.pixel32.Name = "pixel32";
+            this.pixel32.Size = new System.Drawing.Size(54, 17);
+            this.pixel32.TabIndex = 13;
+            this.pixel32.TabStop = true;
+            this.pixel32.Text = "32x32";
+            this.pixel32.UseVisualStyleBackColor = true;
+            this.pixel32.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // pixel64
+            // 
+            this.pixel64.AutoSize = true;
+            this.pixel64.Location = new System.Drawing.Point(350, 40);
+            this.pixel64.Name = "pixel64";
+            this.pixel64.Size = new System.Drawing.Size(54, 17);
+            this.pixel64.TabIndex = 14;
+            this.pixel64.TabStop = true;
+            this.pixel64.Text = "64x64";
+            this.pixel64.UseVisualStyleBackColor = true;
+            // 
+            // pixel128
+            // 
+            this.pixel128.AutoSize = true;
+            this.pixel128.Location = new System.Drawing.Point(350, 56);
+            this.pixel128.Name = "pixel128";
+            this.pixel128.Size = new System.Drawing.Size(66, 17);
+            this.pixel128.TabIndex = 15;
+            this.pixel128.TabStop = true;
+            this.pixel128.Text = "128x128";
+            this.pixel128.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(276, 9);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(68, 13);
+            label3.TabIndex = 16;
+            label3.Text = "Cant. Pixeles";
+            label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 417);
+            this.ClientSize = new System.Drawing.Size(666, 463);
+            this.Controls.Add(label3);
+            this.Controls.Add(this.pixel128);
+            this.Controls.Add(this.pixel64);
+            this.Controls.Add(this.pixel32);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -465,6 +518,9 @@
         private System.Windows.Forms.CheckBox histColorCheck;
         private System.Windows.Forms.CheckBox histFormaCheck;
         private System.Windows.Forms.CheckBox conTrampaCheck;
+        private System.Windows.Forms.RadioButton pixel32;
+        private System.Windows.Forms.RadioButton pixel64;
+        private System.Windows.Forms.RadioButton pixel128;
     }
 }
 
