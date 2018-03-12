@@ -33,6 +33,8 @@ namespace Progra_1_Analisis
 
         private void iniciarEvolucion(object sender, EventArgs e)
         {
+
+            
             if (!validateInput()) {
                 MessageBox.Show("Por favor inserte parámetros correctos.", "Error en las configuraciones",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -40,6 +42,10 @@ namespace Progra_1_Analisis
             }
 
             SingletonCache singleton = SingletonCache.Instance;
+            singleton.DistGChecked = DistanciaGCheck.Checked;
+            singleton.DistManChecked = DistanciaManCheck.Checked;
+            singleton.histColorChecked = histColorCheck.Checked;
+            singleton.histFormaChecked = histFormaCheck.Checked;
             singleton.tamPoblacion = Int32.Parse(entryPoblacion.Text);
             singleton.porcCruses = float.Parse(entryCruces.Text, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
             singleton.porcMenosApt = float.Parse(entryMenosApt.Text, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
@@ -48,6 +54,14 @@ namespace Progra_1_Analisis
             AlgoritmoGenetico.primeraGeneracion();
             imagenGenerada.Image = singleton.poblacion[0].image;
             updateStatistics();
+
+            for (int i = 0; i < SingletonCache.Instance.cantidadItereaciones; i++)
+            {
+                AlgoritmoGenetico.siguienteGeneracion();
+                SingletonCache.Instance.numGeneracion++;
+
+                updateStatistics();
+            }
 
         }
         private void updateStatistics()
@@ -109,15 +123,5 @@ namespace Progra_1_Analisis
 
         }
 
-        private async void sigGeneracion_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < SingletonCache.Instance.cantidadItereaciones; i++)
-            {
-                AlgoritmoGenetico.siguienteGeneracion();
-                SingletonCache.Instance.numGeneracion++;
-
-                updateStatistics();
-            }
-        }
     }
 }

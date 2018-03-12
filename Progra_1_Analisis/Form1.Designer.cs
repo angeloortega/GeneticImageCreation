@@ -56,7 +56,11 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.sigGeneracion = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.histFormaCheck = new System.Windows.Forms.CheckBox();
+            this.histColorCheck = new System.Windows.Forms.CheckBox();
+            this.DistanciaManCheck = new System.Windows.Forms.CheckBox();
+            this.DistanciaGCheck = new System.Windows.Forms.CheckBox();
             objetivoLbl = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -66,6 +70,7 @@
             this.statBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // objetivoLbl
@@ -331,22 +336,65 @@
             this.label12.TabIndex = 4;
             this.label12.Text = "Tam población:";
             // 
-            // sigGeneracion
+            // groupBox3
             // 
-            this.sigGeneracion.Location = new System.Drawing.Point(457, 387);
-            this.sigGeneracion.Name = "sigGeneracion";
-            this.sigGeneracion.Size = new System.Drawing.Size(83, 23);
-            this.sigGeneracion.TabIndex = 11;
-            this.sigGeneracion.Text = "Siguiente Gen";
-            this.sigGeneracion.UseVisualStyleBackColor = true;
-            this.sigGeneracion.Click += new System.EventHandler(this.sigGeneracion_Click);
+            this.groupBox3.Controls.Add(this.DistanciaGCheck);
+            this.groupBox3.Controls.Add(this.DistanciaManCheck);
+            this.groupBox3.Controls.Add(this.histColorCheck);
+            this.groupBox3.Controls.Add(this.histFormaCheck);
+            this.groupBox3.Location = new System.Drawing.Point(320, 75);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(127, 137);
+            this.groupBox3.TabIndex = 12;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Calculo de diferencias:";
+            // 
+            // histFormaCheck
+            // 
+            this.histFormaCheck.AutoSize = true;
+            this.histFormaCheck.Location = new System.Drawing.Point(14, 35);
+            this.histFormaCheck.Name = "histFormaCheck";
+            this.histFormaCheck.Size = new System.Drawing.Size(79, 17);
+            this.histFormaCheck.TabIndex = 0;
+            this.histFormaCheck.Text = "Hist. Forma";
+            this.histFormaCheck.UseVisualStyleBackColor = true;
+            // 
+            // histColorCheck
+            // 
+            this.histColorCheck.AutoSize = true;
+            this.histColorCheck.Location = new System.Drawing.Point(14, 59);
+            this.histColorCheck.Name = "histColorCheck";
+            this.histColorCheck.Size = new System.Drawing.Size(74, 17);
+            this.histColorCheck.TabIndex = 1;
+            this.histColorCheck.Text = "Hist. Color";
+            this.histColorCheck.UseVisualStyleBackColor = true;
+            // 
+            // DistanciaManCheck
+            // 
+            this.DistanciaManCheck.AutoSize = true;
+            this.DistanciaManCheck.Location = new System.Drawing.Point(14, 82);
+            this.DistanciaManCheck.Name = "DistanciaManCheck";
+            this.DistanciaManCheck.Size = new System.Drawing.Size(101, 17);
+            this.DistanciaManCheck.TabIndex = 2;
+            this.DistanciaManCheck.Text = "Dist. Manhattan";
+            this.DistanciaManCheck.UseVisualStyleBackColor = true;
+            // 
+            // DistanciaGCheck
+            // 
+            this.DistanciaGCheck.AutoSize = true;
+            this.DistanciaGCheck.Location = new System.Drawing.Point(14, 105);
+            this.DistanciaGCheck.Name = "DistanciaGCheck";
+            this.DistanciaGCheck.Size = new System.Drawing.Size(81, 17);
+            this.DistanciaGCheck.TabIndex = 3;
+            this.DistanciaGCheck.Text = "Distancia G";
+            this.DistanciaGCheck.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(665, 417);
-            this.Controls.Add(this.sigGeneracion);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statBox);
@@ -367,6 +415,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -397,7 +447,11 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblGenNumber;
-        private System.Windows.Forms.Button sigGeneracion;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox DistanciaGCheck;
+        private System.Windows.Forms.CheckBox DistanciaManCheck;
+        private System.Windows.Forms.CheckBox histColorCheck;
+        private System.Windows.Forms.CheckBox histFormaCheck;
     }
 }
 

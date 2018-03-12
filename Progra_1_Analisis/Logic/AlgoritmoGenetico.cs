@@ -92,8 +92,8 @@ namespace Progra_1_Analisis.Logic
             bmpO2 = new Bitmap(padre2.image);
             bmpO3 = new Bitmap(padre1.image);
             bmpO4 = new Bitmap(padre2.image);
-            bmpO5 = new Bitmap(padre1.image);
-            bmpO6 = new Bitmap(padre2.image);
+            bmpO5 = new Bitmap(padre2.image);
+            bmpO6 = new Bitmap(padre1.image);
             for (y = 0; y < height; y += 2)
             {
                 for (x = 0; x < width; x += 2)
@@ -136,12 +136,11 @@ namespace Progra_1_Analisis.Logic
             opciones.Add(opcion2);
             opciones.Add(opcion1);
             opciones.Sort();
-            Console.WriteLine(opciones[0].id);
             if(rand.Next(100) < 5) {
                 return opciones[5];
             }
             if (rand.Next(100) < 33) {
-                return opciones[rand.Next(6)];
+                return opciones[rand.Next(5)];
                     }
             return opciones[0];
         }

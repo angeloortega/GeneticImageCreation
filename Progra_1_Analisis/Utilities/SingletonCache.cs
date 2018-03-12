@@ -20,6 +20,10 @@ namespace Progra_1_Analisis.Utilities
         public Imagen indMasAptoHist;
         public Imagen indMenosAptoHist;
         public double indPromedioAptoHist;
+        public bool histColorChecked;
+        public bool histFormaChecked;
+        public bool DistGChecked;
+        public bool DistManChecked;
         private SingletonCache() { }
 
         public static SingletonCache Instance
@@ -42,7 +46,7 @@ namespace Progra_1_Analisis.Utilities
                 Instance.indPromedioAptoHist = diferencia / Instance.tamPoblacion;
             }
             else {
-                Instance.indPromedioAptoHist = (Instance.indPromedioAptoHist + (diferencia / Instance.tamPoblacion))/Instance.numGeneracion;
+                Instance.indPromedioAptoHist = (Instance.indPromedioAptoHist*Instance.numGeneracion + (diferencia / Instance.tamPoblacion))/(Instance.numGeneracion+1);
             }
             return diferencia / Instance.tamPoblacion;
         }
