@@ -53,5 +53,24 @@ namespace Progra_1_Analisis.Model
             }
             return (diferencia / (64 * 16))* 100;
         }
+
+        public double distanciaGiullaMan(Imagen histograma)
+        {
+            HistogramaForma objetivo = histograma.histForma;
+            double diferencia = 0;
+            for (int k = 0; k < 16; k++)
+            {
+                for (int i = 0; i < 64; i++)
+                {
+                    if (booleanMap[k][i] != objetivo.booleanMap[k][i])
+                    {
+                        diferencia++;
+                    }
+
+                }
+            }
+            diferencia = Math.Sqrt(diferencia) * 100 / 32;
+            return diferencia;
+        }
     }
 }

@@ -73,7 +73,7 @@ namespace Progra_1_Analisis.Utilities
             float scaleHeight = finalHeight / (float)original.Height;
             float scaleWidth = finalWidth / (float)original.Width;
             float scale = Math.Min(scaleHeight, scaleWidth);
-            return new Bitmap(original, (int)(original.Width * scale), (int)(original.Height * scale));
+            return new Bitmap(original, (int)Math.Round(original.Width * scale), (int)Math.Round(original.Height * scale));
         }
 
         public static Bitmap PadImage(Bitmap originalImage)

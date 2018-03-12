@@ -28,6 +28,10 @@ namespace Progra_1_Analisis.Model
             {
                 if (singleton.DistGChecked)
                 {
+                    diferencia = histColor.distanciaGiullaMan(objetivo);
+                    diferencia += histForma.distanciaGiullaMan(objetivo) * 2;
+
+                    diferencia /= 3;
                 }
                 if (singleton.DistManChecked)
                 {
