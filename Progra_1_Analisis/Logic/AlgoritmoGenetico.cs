@@ -300,9 +300,17 @@ namespace Progra_1_Analisis.Logic
             poblacionCandidata.Sort();
             //Formar generacion nueva
             while (poblacionNueva.Count < tamPoblacion) {
-                randomInd = rnd.Next(poblacionCandidata.Count);
-                poblacionNueva.Add(poblacionCandidata[randomInd]);
-                poblacionCandidata.Remove(poblacionCandidata[randomInd]);
+                if (poblacionCandidata.Count > 0)
+                {
+                    randomInd = rnd.Next(poblacionCandidata.Count);
+                    poblacionNueva.Add(poblacionCandidata[randomInd]);
+                    poblacionCandidata.Remove(poblacionCandidata[randomInd]);
+                }
+                else {
+
+                    poblacionNueva.Add(poblacionAct[0]);
+                    poblacionCandidata.Remove(poblacionAct[0]);
+                }
             }
             singleton.poblacion = poblacionNueva;
             SingletonCache.calcularDiferencias();
