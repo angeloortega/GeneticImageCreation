@@ -8,6 +8,7 @@ namespace Progra_1_Analisis.Utilities
         private static SingletonCache instance;
         public Imagen objetivo;
         public List<Imagen> poblacion;
+        public List<Imagen> imagenesFinales;
         public int tamPoblacion;
         public int numGeneracion = 0;
         public int cantidadItereaciones;

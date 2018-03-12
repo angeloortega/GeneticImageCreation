@@ -49,6 +49,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.lblRutaPrompt = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lblRuta = new System.Windows.Forms.Label();
+            this.GuardarButton = new System.Windows.Forms.Button();
+            this.VolverButton = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -64,7 +70,7 @@
             // pictureBox1
             // 
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(31, 21);
+            this.pictureBox1.Location = new System.Drawing.Point(31, 100);
             this.pictureBox1.MinimumSize = new System.Drawing.Size(129, 114);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(129, 114);
@@ -75,7 +81,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(200, 21);
+            this.pictureBox2.Location = new System.Drawing.Point(200, 100);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(129, 114);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -84,7 +90,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(365, 21);
+            this.pictureBox3.Location = new System.Drawing.Point(365, 100);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(129, 114);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -93,7 +99,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(523, 21);
+            this.pictureBox4.Location = new System.Drawing.Point(523, 100);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(129, 114);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -102,7 +108,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Location = new System.Drawing.Point(684, 21);
+            this.pictureBox5.Location = new System.Drawing.Point(684, 100);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(129, 114);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -111,7 +117,7 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Location = new System.Drawing.Point(684, 192);
+            this.pictureBox6.Location = new System.Drawing.Point(31, 271);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(129, 114);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -120,7 +126,7 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Location = new System.Drawing.Point(523, 192);
+            this.pictureBox7.Location = new System.Drawing.Point(200, 271);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(129, 114);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -129,7 +135,7 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Location = new System.Drawing.Point(365, 192);
+            this.pictureBox8.Location = new System.Drawing.Point(365, 271);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(129, 114);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -138,7 +144,7 @@
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Location = new System.Drawing.Point(200, 192);
+            this.pictureBox9.Location = new System.Drawing.Point(523, 271);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(129, 114);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -147,7 +153,7 @@
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Location = new System.Drawing.Point(31, 192);
+            this.pictureBox10.Location = new System.Drawing.Point(684, 271);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(129, 114);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -157,7 +163,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(77, 138);
+            this.label1.Location = new System.Drawing.Point(77, 217);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 10;
@@ -166,7 +172,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(247, 138);
+            this.label2.Location = new System.Drawing.Point(247, 217);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 11;
@@ -175,7 +181,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(409, 138);
+            this.label3.Location = new System.Drawing.Point(409, 217);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 12;
@@ -184,7 +190,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(571, 138);
+            this.label4.Location = new System.Drawing.Point(571, 217);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 13;
@@ -193,7 +199,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(732, 138);
+            this.label5.Location = new System.Drawing.Point(732, 217);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 13);
             this.label5.TabIndex = 14;
@@ -202,7 +208,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(247, 309);
+            this.label6.Location = new System.Drawing.Point(247, 388);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 13);
             this.label6.TabIndex = 15;
@@ -211,7 +217,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(77, 309);
+            this.label7.Location = new System.Drawing.Point(77, 388);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 13);
             this.label7.TabIndex = 16;
@@ -220,7 +226,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(409, 309);
+            this.label8.Location = new System.Drawing.Point(409, 388);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 13);
             this.label8.TabIndex = 17;
@@ -229,7 +235,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(571, 309);
+            this.label9.Location = new System.Drawing.Point(571, 388);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(45, 13);
             this.label9.TabIndex = 18;
@@ -238,17 +244,81 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(732, 309);
+            this.label10.Location = new System.Drawing.Point(732, 388);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(51, 13);
             this.label10.TabIndex = 19;
             this.label10.Text = "Image 10";
             // 
+            // lblRutaPrompt
+            // 
+            this.lblRutaPrompt.AutoSize = true;
+            this.lblRutaPrompt.Location = new System.Drawing.Point(159, 417);
+            this.lblRutaPrompt.Name = "lblRutaPrompt";
+            this.lblRutaPrompt.Size = new System.Drawing.Size(133, 13);
+            this.lblRutaPrompt.TabIndex = 21;
+            this.lblRutaPrompt.Text = "Ruta para guardar imagen:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(47, 412);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 23);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Seleccionar Ruta";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lblRuta
+            // 
+            this.lblRuta.AutoSize = true;
+            this.lblRuta.Location = new System.Drawing.Point(298, 417);
+            this.lblRuta.Name = "lblRuta";
+            this.lblRuta.Size = new System.Drawing.Size(0, 13);
+            this.lblRuta.TabIndex = 23;
+            // 
+            // GuardarButton
+            // 
+            this.GuardarButton.Location = new System.Drawing.Point(639, 412);
+            this.GuardarButton.Name = "GuardarButton";
+            this.GuardarButton.Size = new System.Drawing.Size(75, 23);
+            this.GuardarButton.TabIndex = 24;
+            this.GuardarButton.Text = "Guardar";
+            this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
+            // 
+            // VolverButton
+            // 
+            this.VolverButton.Location = new System.Drawing.Point(720, 412);
+            this.VolverButton.Name = "VolverButton";
+            this.VolverButton.Size = new System.Drawing.Size(75, 23);
+            this.VolverButton.TabIndex = 25;
+            this.VolverButton.Text = "Volver";
+            this.VolverButton.UseVisualStyleBackColor = true;
+            this.VolverButton.Click += new System.EventHandler(this.VolverButton_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(66, 10);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(716, 73);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "ḔṼṎḶṲṮḬṎṆ ṘḔṠṲḶṮṠ";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(825, 352);
+            this.ClientSize = new System.Drawing.Size(849, 449);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.VolverButton);
+            this.Controls.Add(this.GuardarButton);
+            this.Controls.Add(this.lblRuta);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblRutaPrompt);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -270,7 +340,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Resultados";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -307,5 +377,11 @@
         public System.Windows.Forms.PictureBox pictureBox8;
         public System.Windows.Forms.PictureBox pictureBox9;
         public System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.Label lblRutaPrompt;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblRuta;
+        private System.Windows.Forms.Button GuardarButton;
+        private System.Windows.Forms.Button VolverButton;
+        private System.Windows.Forms.Label label11;
     }
 }
