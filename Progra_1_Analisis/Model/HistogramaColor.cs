@@ -91,9 +91,9 @@ namespace Progra_1_Analisis.Model
                 {
                     diferenciaParcial += Math.Abs(sectoresDeHistograma[k][0][i] - objetivo.sectoresDeHistograma[k][0][i]) + Math.Abs(sectoresDeHistograma[k][1][i] - objetivo.sectoresDeHistograma[k][1][i]) + Math.Abs(sectoresDeHistograma[k][2][i] - objetivo.sectoresDeHistograma[k][2][i]);
                 }
-                diferenciaFinal = diferenciaParcial / 6;
+                diferenciaFinal += diferenciaParcial / 6;
             }
-            return diferenciaParcial / 16;
+            return diferenciaFinal / 16;
         }
     }
 }

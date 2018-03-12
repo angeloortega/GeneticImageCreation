@@ -46,6 +46,7 @@ namespace Progra_1_Analisis
             singleton.DistManChecked = DistanciaManCheck.Checked;
             singleton.histColorChecked = histColorCheck.Checked;
             singleton.histFormaChecked = histFormaCheck.Checked;
+
             singleton.tamPoblacion = Int32.Parse(entryPoblacion.Text);
             singleton.porcCruses = float.Parse(entryCruces.Text, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
             singleton.porcMenosApt = float.Parse(entryMenosApt.Text, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
@@ -54,14 +55,30 @@ namespace Progra_1_Analisis
             AlgoritmoGenetico.primeraGeneracion();
             imagenGenerada.Image = singleton.poblacion[0].image;
             updateStatistics();
-
-            for (int i = 0; i < SingletonCache.Instance.cantidadItereaciones; i++)
+            bool trampa = conTrampaCheck.Checked;
+            if (trampa)
             {
-                AlgoritmoGenetico.siguienteGeneracion();
-                SingletonCache.Instance.numGeneracion++;
-
-                updateStatistics();
+                for (int i = 1; i < SingletonCache.Instance.cantidadItereaciones; i++)
+                {
+                    trampa = false;
+                    if (i % 5 == 0)
+                    {
+                        trampa = true;
+                    }
+                    AlgoritmoGenetico.siguienteGeneracion(trampa);
+                    SingletonCache.Instance.numGeneracion++;
+                    updateStatistics();
+                }
             }
+            else {
+                for (int i = 1; i < SingletonCache.Instance.cantidadItereaciones; i++)
+                {
+                    AlgoritmoGenetico.siguienteGeneracion(false);
+                    SingletonCache.Instance.numGeneracion++;
+                    updateStatistics();
+                }
+            }
+            
 
         }
         private void updateStatistics()

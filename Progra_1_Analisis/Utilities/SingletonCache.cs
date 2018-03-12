@@ -24,6 +24,7 @@ namespace Progra_1_Analisis.Utilities
         public bool histFormaChecked;
         public bool DistGChecked;
         public bool DistManChecked;
+        public bool trampa;
         private SingletonCache() { }
 
         public static SingletonCache Instance

@@ -57,10 +57,11 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.histFormaCheck = new System.Windows.Forms.CheckBox();
-            this.histColorCheck = new System.Windows.Forms.CheckBox();
-            this.DistanciaManCheck = new System.Windows.Forms.CheckBox();
             this.DistanciaGCheck = new System.Windows.Forms.CheckBox();
+            this.DistanciaManCheck = new System.Windows.Forms.CheckBox();
+            this.histColorCheck = new System.Windows.Forms.CheckBox();
+            this.histFormaCheck = new System.Windows.Forms.CheckBox();
+            this.conTrampaCheck = new System.Windows.Forms.CheckBox();
             objetivoLbl = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -338,36 +339,27 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.conTrampaCheck);
             this.groupBox3.Controls.Add(this.DistanciaGCheck);
             this.groupBox3.Controls.Add(this.DistanciaManCheck);
             this.groupBox3.Controls.Add(this.histColorCheck);
             this.groupBox3.Controls.Add(this.histFormaCheck);
-            this.groupBox3.Location = new System.Drawing.Point(320, 75);
+            this.groupBox3.Location = new System.Drawing.Point(320, 53);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(127, 137);
+            this.groupBox3.Size = new System.Drawing.Size(127, 159);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Calculo de diferencias:";
             // 
-            // histFormaCheck
+            // DistanciaGCheck
             // 
-            this.histFormaCheck.AutoSize = true;
-            this.histFormaCheck.Location = new System.Drawing.Point(14, 35);
-            this.histFormaCheck.Name = "histFormaCheck";
-            this.histFormaCheck.Size = new System.Drawing.Size(79, 17);
-            this.histFormaCheck.TabIndex = 0;
-            this.histFormaCheck.Text = "Hist. Forma";
-            this.histFormaCheck.UseVisualStyleBackColor = true;
-            // 
-            // histColorCheck
-            // 
-            this.histColorCheck.AutoSize = true;
-            this.histColorCheck.Location = new System.Drawing.Point(14, 59);
-            this.histColorCheck.Name = "histColorCheck";
-            this.histColorCheck.Size = new System.Drawing.Size(74, 17);
-            this.histColorCheck.TabIndex = 1;
-            this.histColorCheck.Text = "Hist. Color";
-            this.histColorCheck.UseVisualStyleBackColor = true;
+            this.DistanciaGCheck.AutoSize = true;
+            this.DistanciaGCheck.Location = new System.Drawing.Point(14, 105);
+            this.DistanciaGCheck.Name = "DistanciaGCheck";
+            this.DistanciaGCheck.Size = new System.Drawing.Size(81, 17);
+            this.DistanciaGCheck.TabIndex = 3;
+            this.DistanciaGCheck.Text = "Distancia G";
+            this.DistanciaGCheck.UseVisualStyleBackColor = true;
             // 
             // DistanciaManCheck
             // 
@@ -379,15 +371,35 @@
             this.DistanciaManCheck.Text = "Dist. Manhattan";
             this.DistanciaManCheck.UseVisualStyleBackColor = true;
             // 
-            // DistanciaGCheck
+            // histColorCheck
             // 
-            this.DistanciaGCheck.AutoSize = true;
-            this.DistanciaGCheck.Location = new System.Drawing.Point(14, 105);
-            this.DistanciaGCheck.Name = "DistanciaGCheck";
-            this.DistanciaGCheck.Size = new System.Drawing.Size(81, 17);
-            this.DistanciaGCheck.TabIndex = 3;
-            this.DistanciaGCheck.Text = "Distancia G";
-            this.DistanciaGCheck.UseVisualStyleBackColor = true;
+            this.histColorCheck.AutoSize = true;
+            this.histColorCheck.Location = new System.Drawing.Point(14, 59);
+            this.histColorCheck.Name = "histColorCheck";
+            this.histColorCheck.Size = new System.Drawing.Size(74, 17);
+            this.histColorCheck.TabIndex = 1;
+            this.histColorCheck.Text = "Hist. Color";
+            this.histColorCheck.UseVisualStyleBackColor = true;
+            // 
+            // histFormaCheck
+            // 
+            this.histFormaCheck.AutoSize = true;
+            this.histFormaCheck.Location = new System.Drawing.Point(14, 35);
+            this.histFormaCheck.Name = "histFormaCheck";
+            this.histFormaCheck.Size = new System.Drawing.Size(79, 17);
+            this.histFormaCheck.TabIndex = 0;
+            this.histFormaCheck.Text = "Hist. Forma";
+            this.histFormaCheck.UseVisualStyleBackColor = true;
+            // 
+            // conTrampaCheck
+            // 
+            this.conTrampaCheck.AutoSize = true;
+            this.conTrampaCheck.Location = new System.Drawing.Point(14, 129);
+            this.conTrampaCheck.Name = "conTrampaCheck";
+            this.conTrampaCheck.Size = new System.Drawing.Size(86, 17);
+            this.conTrampaCheck.TabIndex = 4;
+            this.conTrampaCheck.Text = "Con trampa?";
+            this.conTrampaCheck.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -452,6 +464,7 @@
         private System.Windows.Forms.CheckBox DistanciaManCheck;
         private System.Windows.Forms.CheckBox histColorCheck;
         private System.Windows.Forms.CheckBox histFormaCheck;
+        private System.Windows.Forms.CheckBox conTrampaCheck;
     }
 }
 

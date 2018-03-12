@@ -24,7 +24,7 @@ namespace Progra_1_Analisis.Logic
             int newB;
             int x;
             int y;
-            int newcolor;
+            int newAclarar;
             Color oldColor;
             bool isNotPng = !SingletonCache.Instance.objetivo.id.Contains("png");
             while (pixelesPorMutar > 0) {
@@ -38,14 +38,14 @@ namespace Progra_1_Analisis.Logic
                 newR = rand.Next(256);
                 newG = rand.Next(256);
                 newB = rand.Next(256);
-                newcolor = (int)(newR + newG + newB) / 3;
-                if (rand.Next(100) < 30)
+                newAclarar = rand.Next(50);
+                if (rand.Next(100) < 50)
                 {
-                    bmp.SetPixel(x, y, Color.FromArgb((r + newcolor) % 256, (g + newcolor) % 256, (b + newcolor) % 256));
+                    bmp.SetPixel(x, y, Color.FromArgb(newR, newG, newB));
                 }
                 else {
-                    if (rand.Next(100) % 2 == 0) {
-                        bmp.SetPixel(x, y, Color.FromArgb(Math.Abs(r - newcolor) % 256, Math.Abs(g - newcolor) % 256, Math.Abs(b - newcolor) % 256));
+                    if (rand.Next(100) < 30) {
+                        bmp.SetPixel(x, y, Color.FromArgb(Math.Abs(r - newAclarar) % 256, Math.Abs(g - newAclarar) % 256, Math.Abs(b - newAclarar) % 256));
                     }
                     else
                     {
@@ -144,6 +144,26 @@ namespace Progra_1_Analisis.Logic
                     }
             return opciones[0];
         }
+        public static Imagen cruceCompObjetivo(Imagen padre1, Imagen padre2, Imagen objetivo) {
+            Bitmap imagenFinal = new Bitmap(padre1.image.Height, padre1.image.Height);
+
+            for (int y = 0; y < padre1.image.Height; y++) {
+                for (int x = 0; x < padre1.image.Width; x++)
+                {
+                    imagenFinal.SetPixel(x,y,compararPixeles(padre1.image.GetPixel(x, y), padre1.image.GetPixel(x, y), padre1.image.GetPixel(x, y)));
+                }
+            }
+            return new Imagen("cruceComp", imagenFinal);
+        }
+        public static Color compararPixeles(Color p1, Color p2, Color pO)
+        {
+            double diferencia1 = Math.Abs(p1.R - pO.R) + Math.Abs(p1.G - pO.G) + Math.Abs(p1.B - pO.B);
+            double diferencia2 = Math.Abs(p2.R - pO.R) + Math.Abs(p2.G - pO.G) + Math.Abs(p2.B - pO.B);
+            if (diferencia1 < diferencia2) {
+                return p1;
+            }
+            return p2;
+        }
         public static void primeraGeneracion()
         {
             SingletonCache singleton = SingletonCache.Instance;
@@ -154,7 +174,7 @@ namespace Progra_1_Analisis.Logic
             singleton.indMenosAptoGen = singleton.poblacion[SingletonCache.Instance.tamPoblacion - 1];
             singleton.numGeneracion = 1;
         }
-        public static void siguienteGeneracion()
+        public static void siguienteGeneracion(bool trampa)
         {
             Random rnd = new Random();
             SingletonCache singleton = SingletonCache.Instance;
@@ -162,46 +182,55 @@ namespace Progra_1_Analisis.Logic
             Imagen p2;
             List<Imagen> poblacionAct = singleton.poblacion;
             int tamPoblacion = poblacionAct.Count;
+            List<Imagen> poblacionCandidata = new List<Imagen>(tamPoblacion);
             List<Imagen> poblacionNueva = new List<Imagen>(tamPoblacion);
             int indPorMutar = (int) ((singleton.porcMutacion / 100) * tamPoblacion);
             int crucesPorRealizar = (int) ((singleton.porcCruses / 100) * tamPoblacion);
             int menosAptosPorMantener = (int) ((singleton.porcMenosApt / 100) * tamPoblacion);
-            int generados = 0;
+            int masAptosPorMantener = (int)0.2 * tamPoblacion;
             int mutante = 0;
-            int tamPoblacionFinal = tamPoblacion;
+            int randomInd;
             List<Imagen> tournament = new List<Imagen>(5);
-            //guardar al mas apto
+            //Guardar un porcentaje de los mas aptos
+            
             foreach (Imagen menosApto in (poblacionAct.GetRange(tamPoblacion - (menosAptosPorMantener + 1), menosAptosPorMantener))) {
                 poblacionNueva.Add(menosApto);
-                generados++;
+            }
+            foreach (Imagen masApto in (poblacionAct.GetRange(0, masAptosPorMantener / 2)))
+            {
+                poblacionNueva.Add(masApto);
             }
             while (indPorMutar > 0) {
-                mutante = rnd.Next(tamPoblacion-1);
-                poblacionNueva.Add(mutacion(poblacionAct[mutante], rnd.Next(15, 40)));
-                generados++;
+                mutante = rnd.Next(poblacionAct.Count-1);
+                poblacionCandidata.Add(mutacion(poblacionAct[mutante], rnd.Next(5,50)));
                 indPorMutar--;
-                tamPoblacion--;
-                poblacionAct.Remove(poblacionAct[mutante]);
             }
-            while (crucesPorRealizar > 0)
+
+            //Cruces entre aptos
+            while (crucesPorRealizar > (2*crucesPorRealizar)/3)
             {
-                for (int i = 0; i < rnd.Next(1,tamPoblacion%5 +2); i++)
+                for (int i = 0; i < rnd.Next(1,poblacionAct.Count%5 +2); i++)
                 {
-                    int randomInd = rnd.Next(tamPoblacion);
+                    randomInd = rnd.Next(poblacionAct.Count);
                     tournament.Add(poblacionAct[randomInd]);
                 }
                 tournament.Sort();
                 p1 = tournament[0];
                 tournament.Clear();
-                for (int i = 0; i < rnd.Next(1, tamPoblacion % 5 + 2); i++)
+                for (int i = 0; i < rnd.Next(1, poblacionAct.Count % 5 + 2); i++)
                 {
-                    int randomInd = rnd.Next(poblacionAct.Count);
+                    randomInd = rnd.Next(poblacionAct.Count);
                     tournament.Add(poblacionAct[randomInd]);
                 }
                 tournament.Sort();
                 p2 = tournament[0];
-                poblacionNueva.Add(cruceGenetico(p1,p2));
-                generados++;
+                if (trampa) {
+                    poblacionCandidata.Add(cruceCompObjetivo(p1, p2,singleton.objetivo));
+                }
+                else
+                {
+                    poblacionCandidata.Add(cruceGenetico(p1, p2));
+                }
                 crucesPorRealizar--;
                 if (rnd.Next(1,3) %2 == 0) {
                     poblacionAct.Remove(p1);
@@ -210,18 +239,74 @@ namespace Progra_1_Analisis.Logic
                 {
                     poblacionAct.Remove(p2);
                 }
-                tamPoblacion--;
+                
             }
-            while (generados < tamPoblacionFinal) {
-                tournament.Clear();
-                for (int i = 0; i < rnd.Next(1, tamPoblacion % 5 + 2); i++)
+            while (crucesPorRealizar > crucesPorRealizar / 3)
+            {
+                for (int i = 0; i < rnd.Next(1, poblacionAct.Count % 5 + 2); i++)
                 {
-                    int randomInd = rnd.Next(poblacionAct.Count);
+                    randomInd = rnd.Next(poblacionAct.Count);
                     tournament.Add(poblacionAct[randomInd]);
                 }
                 tournament.Sort();
-                poblacionNueva.Add(tournament[0]);
-                generados++;
+                p1 = tournament[0];
+                tournament.Clear();
+
+                randomInd = rnd.Next(poblacionAct.Count/2,poblacionAct.Count);
+                p2 = poblacionAct[randomInd];
+                if (trampa)
+                {
+                    poblacionCandidata.Add(cruceCompObjetivo(p1, p2, singleton.objetivo));
+                }
+                else
+                {
+                    poblacionCandidata.Add(cruceGenetico(p1, p2));
+                }
+                crucesPorRealizar--;
+                if (rnd.Next(1, 3) % 2 == 0)
+                {
+                    poblacionAct.Remove(p1);
+                }
+                else
+                {
+                    poblacionAct.Remove(p2);
+                }
+                
+            }
+            while (crucesPorRealizar > 0)
+            {
+                randomInd = rnd.Next(poblacionAct.Count / 2, poblacionAct.Count);
+                p1 = poblacionAct[randomInd];
+                randomInd = rnd.Next(poblacionAct.Count / 2, poblacionAct.Count);
+                p2 = poblacionAct[randomInd];
+                if (trampa)
+                {
+                    poblacionCandidata.Add(cruceCompObjetivo(p1, p2, singleton.objetivo));
+                }
+                else
+                {
+                    poblacionCandidata.Add(cruceGenetico(p1, p2));
+                }
+                crucesPorRealizar--;
+                if (rnd.Next(1, 3) % 2 == 0)
+                {
+                    poblacionAct.Remove(p1);
+                }
+                else
+                {
+                    poblacionAct.Remove(p2);
+                }
+            }
+            poblacionCandidata.Sort();
+            foreach (Imagen masApto in (poblacionCandidata.GetRange(0, masAptosPorMantener/2)))
+            {
+                poblacionNueva.Add(masApto);
+            }
+            //Formar generacion nueva
+            while (poblacionNueva.Count < tamPoblacion) {
+                randomInd = rnd.Next(poblacionCandidata.Count);
+                poblacionNueva.Add(poblacionCandidata[randomInd]);
+                poblacionCandidata.Remove(poblacionCandidata[randomInd]);
             }
             singleton.poblacion = poblacionNueva;
             SingletonCache.calcularDiferencias();

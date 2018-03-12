@@ -30,7 +30,6 @@ namespace Progra_1_Analisis.Utilities
             int r = rand.Next(256);
             int g = rand.Next(256);
             int b = rand.Next(256);
-            bool isNotPng = !SingletonCache.Instance.objetivo.id.Contains("png");
             while (cantidad > 0)
             {
 
@@ -40,18 +39,12 @@ namespace Progra_1_Analisis.Utilities
                     for (int x = 0; x < width; x++)
                     {
                         //generate random ARGB value
-                        a = rand.Next(256);
-
-                        if (isNotPng)
-                        {
-                            a = 255;
-                        }            
                         r = rand.Next(256);
                         g = rand.Next(256);
                         b = rand.Next(256);
 
                         //set ARGB value
-                        bmp.SetPixel(x, y, Color.FromArgb(a, r, g, b));
+                        bmp.SetPixel(x, y, Color.FromArgb(r, g, b));
                     }
                 }
                 poblacion.Add(new Imagen("" + cantidad, bmp));
@@ -67,7 +60,7 @@ namespace Progra_1_Analisis.Utilities
         
             if (open.ShowDialog() == DialogResult.OK)
             {
-                Bitmap resizedImage = resizeImage(128,128,PadImage(new Bitmap(open.FileName)));
+                Bitmap resizedImage = resizeImage(32,32,PadImage(new Bitmap(open.FileName)));
                 SingletonCache singleton = SingletonCache.Instance;
                 singleton.objetivo = new Imagen("objetivo" + open.FileName.Split('.')[1], resizedImage);
                 // display image in picture box  
