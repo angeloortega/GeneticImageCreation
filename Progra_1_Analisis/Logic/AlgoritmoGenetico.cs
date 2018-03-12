@@ -94,9 +94,9 @@ namespace Progra_1_Analisis.Logic
             bmpO4 = new Bitmap(padre2.image);
             bmpO5 = new Bitmap(padre2.image);
             bmpO6 = new Bitmap(padre1.image);
-            for (y = 0; y < height; y += 2)
+            for (y = 0; y < height; y +=2)
             {
-                for (x = 0; x < width; x += 2)
+                for (x = 0; x < width; x +=2)
                 {
                     randX = rand.Next(width);
                     randY = rand.Next(height);
@@ -150,7 +150,7 @@ namespace Progra_1_Analisis.Logic
             for (int y = 0; y < padre1.image.Height; y++) {
                 for (int x = 0; x < padre1.image.Width; x++)
                 {
-                    imagenFinal.SetPixel(x,y,compararPixeles(padre1.image.GetPixel(x, y), padre1.image.GetPixel(x, y), padre1.image.GetPixel(x, y)));
+                    imagenFinal.SetPixel(x,y,compararPixeles(padre1.image.GetPixel(x, y), padre2.image.GetPixel(x, y), objetivo.image.GetPixel(x, y)));
                 }
             }
             return new Imagen("cruceComp", imagenFinal);
@@ -187,7 +187,7 @@ namespace Progra_1_Analisis.Logic
             int indPorMutar = (int) ((singleton.porcMutacion / 100) * tamPoblacion);
             int crucesPorRealizar = (int) ((singleton.porcCruses / 100) * tamPoblacion);
             int menosAptosPorMantener = (int) ((singleton.porcMenosApt / 100) * tamPoblacion);
-            int masAptosPorMantener = (int)0.2 * tamPoblacion;
+            int masAptosPorMantener = (int)0.1 * tamPoblacion;
             int mutante = 0;
             int randomInd;
             List<Imagen> tournament = new List<Imagen>(5);
@@ -298,10 +298,6 @@ namespace Progra_1_Analisis.Logic
                 }
             }
             poblacionCandidata.Sort();
-            foreach (Imagen masApto in (poblacionCandidata.GetRange(0, masAptosPorMantener/2)))
-            {
-                poblacionNueva.Add(masApto);
-            }
             //Formar generacion nueva
             while (poblacionNueva.Count < tamPoblacion) {
                 randomInd = rnd.Next(poblacionCandidata.Count);
