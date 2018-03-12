@@ -71,9 +71,16 @@ namespace Progra_1_Analisis
                 }
             }
             else {
+                int boosts = (SingletonCache.Instance.cantidadItereaciones / 10);
+                Console.WriteLine(boosts);
                 for (int i = 1; i < SingletonCache.Instance.cantidadItereaciones; i++)
                 {
-                    AlgoritmoGenetico.siguienteGeneracion(false);
+                    trampa = false;
+                    if (i % boosts == 0)
+                    {
+                        trampa = true;
+                    }
+                    AlgoritmoGenetico.siguienteGeneracion(trampa);
                     SingletonCache.Instance.numGeneracion++;
                     updateStatistics();
                 }

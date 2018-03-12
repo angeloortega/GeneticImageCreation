@@ -46,6 +46,7 @@ namespace Progra_1_Analisis.Model
             {
                 if (singleton.DistGChecked)
                 {
+                    diferencia = histColor.distanciaGiullaMan(objetivo);
                 }
                 if (singleton.DistManChecked)
                 {
@@ -55,6 +56,7 @@ namespace Progra_1_Analisis.Model
             else {
                 if (singleton.DistGChecked)
                 {
+                    diferencia = histForma.distanciaGiullaMan(objetivo);
                 }
                 if (singleton.DistManChecked)
                 {
