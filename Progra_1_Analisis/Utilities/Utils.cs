@@ -56,7 +56,7 @@ namespace Progra_1_Analisis.Utilities
         public static Bitmap cargarImagen(int pixel)
         {
             OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.bmp; *.png)|*.jpg; *.jpeg; *.bmp; *.png";
         
             if (open.ShowDialog() == DialogResult.OK)
             {

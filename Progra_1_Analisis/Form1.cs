@@ -66,12 +66,12 @@ namespace Progra_1_Analisis
             singleton.DistManChecked = DistanciaManCheck.Checked;
             singleton.histColorChecked = histColorCheck.Checked;
             singleton.histFormaChecked = histFormaCheck.Checked;
-
             singleton.tamPoblacion = Int32.Parse(entryPoblacion.Text);
             singleton.porcCruses = float.Parse(entryCruces.Text, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
             singleton.porcMenosApt = float.Parse(entryMenosApt.Text, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
             singleton.porcMutacion = float.Parse(entryMutacion.Text, System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
             singleton.cantidadItereaciones = Int32.Parse(entryIteraciones.Text);
+            SingletonCache.crearEstadisticas();
             AlgoritmoGenetico.primeraGeneracion(pixel);
             imagenGenerada.Image = singleton.poblacion[0].image;
             singleton.indMenosAptoHist = singleton.poblacion[singleton.tamPoblacion - 1];
@@ -96,6 +96,7 @@ namespace Progra_1_Analisis
                         if ((i - 1) % (SingletonCache.Instance.cantidadItereaciones / 10) == 0)
                         {
                             imagenesFinales.Add(SingletonCache.Instance.indMasAptoGen);
+                            SingletonCache.agregarGeneracion();
                         }
                     }
                     else { break; }
@@ -119,6 +120,7 @@ namespace Progra_1_Analisis
                         if ((i - 1) % (SingletonCache.Instance.cantidadItereaciones / 10) == 0)
                         {
                             imagenesFinales.Add(SingletonCache.Instance.indMasAptoGen);
+                            SingletonCache.agregarGeneracion();
                         }
                     }
                     else { break; }
@@ -141,7 +143,7 @@ namespace Progra_1_Analisis
                 muestraResultados.pictureBox9.Image = (imagenesFinales[8].image);
                 muestraResultados.pictureBox10.Image = (imagenesFinales[9].image);
                 muestraResultados.Visible = true;
-                this.Visible = false;
+                Visible = false;
             }
             else
             {

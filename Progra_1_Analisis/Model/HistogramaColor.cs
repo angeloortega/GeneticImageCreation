@@ -61,6 +61,8 @@ namespace Progra_1_Analisis.Model
                 histogramaRGB[1] = histogramaG;
                 histogramaRGB[2] = histogramaB;
                 sectoresDeHistograma[k] = histogramaRGB;
+                imageSectors[k].Dispose();
+                
             }
             
             //Normalizing so histograms can be comparable
@@ -75,8 +77,7 @@ namespace Progra_1_Analisis.Model
                     sectoresDeHistograma[k][2][j] = (sectoresDeHistograma[k][2][j] / tam) * 100;
                 }
             }
-
-            return;
+            smallBit.Dispose();
         }
         override
         public double distanciaManhattan(Imagen histograma)

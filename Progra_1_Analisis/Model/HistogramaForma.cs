@@ -5,39 +5,22 @@ namespace Progra_1_Analisis.Model
 {
     public class HistogramaForma : Histograma
     {
-        int[][] booleanMap;
+        int[] booleanMap;
         public HistogramaForma(Bitmap bmp) {
-            booleanMap = new int[16][];
-            int[] booleanSubMap;
+            booleanMap = new int[1024];
             bool isPixelBright;
             Bitmap smallBit = Utilities.Utils.resizeImage(32, 32, bmp);
-            Bitmap[] imageSectors = new Bitmap[16];
-            for (int i = 0; i < 4; i++)
+
+            for (int j = 0; j < 32; j++)
             {
-                for (int j = 0; j < 4; j++)
+                for (int i = 0; i < 32; i++)
                 {
-                    imageSectors[i * 4 + j] = new Bitmap(8, 8);
-                    Graphics graphics = Graphics.FromImage(imageSectors[i * 4 + j]);
-                    graphics.DrawImage(smallBit, new Rectangle(0, 0, 8, 8), new Rectangle(i * 8, j * 8, 8, 8), GraphicsUnit.Pixel);
-                    graphics.Dispose();
-                }
-            }
-            for (int k = 0; k < 16; k++)
-            {
-                smallBit = imageSectors[k];
-                booleanSubMap = new int[64];
-                for (int j = 0; j < 8; j++)
-                {
-                    for (int i = 0; i < 8; i++)
+                    isPixelBright = (smallBit.GetPixel(i, j).GetBrightness() < 0.5f);
+                    if (isPixelBright)
                     {
-                        isPixelBright = (smallBit.GetPixel(i, j).GetBrightness() < 0.5f);
-                        if (isPixelBright)
-                        {
-                            booleanSubMap[i + 8 * j] += 1;
-                        }
+                        booleanMap[i + 32 * j] += 1;
                     }
                 }
-                booleanMap[k] = booleanSubMap;
             }
         }
         override
@@ -45,28 +28,22 @@ namespace Progra_1_Analisis.Model
         {
             HistogramaForma objetivo = histograma.histForma;
             double diferencia = 0;
-            for (int k = 0; k < 16; k++) {
-                for (int i = 0; i < 64; i++)
-                {
-                    diferencia += Math.Abs(booleanMap[k][i] - objetivo.booleanMap[k][i]);
-                }
+            for (int i = 0; i < 1024; i++)
+            {
+                diferencia += Math.Abs(booleanMap[i] - objetivo.booleanMap[i]);
             }
-            return (diferencia / (64 * 16))* 100;
+            return (diferencia / (1024))* 100;
         }
 
         public double distanciaGiullaMan(Imagen histograma)
         {
             HistogramaForma objetivo = histograma.histForma;
             double diferencia = 0;
-            for (int k = 0; k < 16; k++)
+            for (int i = 0; i < 1024; i++)
             {
-                for (int i = 0; i < 64; i++)
+                if (booleanMap[i] != objetivo.booleanMap[i])
                 {
-                    if (booleanMap[k][i] != objetivo.booleanMap[k][i])
-                    {
-                        diferencia++;
-                    }
-
+                    diferencia++;
                 }
             }
             diferencia = Math.Sqrt(diferencia) * 100 / 32;

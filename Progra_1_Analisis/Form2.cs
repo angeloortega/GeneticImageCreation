@@ -2,14 +2,10 @@
 using Progra_1_Analisis.Utilities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using CsvHelper;
+using System.IO;
 
 namespace Progra_1_Analisis
 {
@@ -85,6 +81,32 @@ namespace Progra_1_Analisis
             parent.Restablecer();
             parent.Visible = true;
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (lblRuta.Text.Equals(string.Empty))
+            {
+                MessageBox.Show("Por favor seleccione la ruta donde desea guardar la imagen", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            string fileName = lblRuta.Text + "\\" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".csv";
+            using (StreamWriter sw = new StreamWriter(@fileName))
+            {
+                CsvWriter csv = new CsvWriter(sw);
+                csv.WriteRecord(SingletonCache.Instance.stats.distanciaManhattan);
+                csv.WriteRecord(SingletonCache.Instance.stats.distanciaPropia);
+                csv.WriteRecord(SingletonCache.Instance.stats.histogramaColor);
+                csv.WriteRecord(SingletonCache.Instance.stats.histogramaForma);
+                csv.WriteRecord(SingletonCache.Instance.stats.seleccionDivina);
+                csv.WriteRecords(SingletonCache.Instance.stats.porcCruces);
+                csv.WriteRecords(SingletonCache.Instance.stats.porcMenosApto);
+                csv.WriteRecords(SingletonCache.Instance.stats.porcMutacion);
+                csv.WriteRecords(SingletonCache.Instance.stats.tamPoblacion);
+                csv.WriteRecords(SingletonCache.Instance.stats.resolucionImagen);
+                csv.WriteRecords(SingletonCache.Instance.stats.numeroIteraciones);
+                csv.WriteRecords(SingletonCache.Instance.stats.generaciones);
+            }
         }
     }
 }

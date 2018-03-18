@@ -26,6 +26,7 @@ namespace Progra_1_Analisis.Utilities
         public bool DistGChecked;
         public bool DistManChecked;
         public bool trampa;
+        public Statistic stats;
         private SingletonCache() { }
 
         public static SingletonCache Instance
@@ -64,6 +65,31 @@ namespace Progra_1_Analisis.Utilities
             {
                 Instance.indMenosAptoHist = Instance.poblacion[Instance.tamPoblacion - 1];
                 Instance.indMasAptoHist = Instance.poblacion[0];
+            }
+        }
+        public static void crearEstadisticas() {
+            SingletonCache singleton = SingletonCache.Instance;
+            singleton.stats = new Statistic();
+            singleton.stats.distanciaManhattan = singleton.DistManChecked;
+            singleton.stats.distanciaPropia = singleton.DistGChecked;
+            singleton.stats.histogramaColor = singleton.histColorChecked;
+            singleton.stats.histogramaForma = singleton.histFormaChecked;
+            singleton.stats.porcCruces = singleton.porcCruses.ToString();
+            singleton.stats.porcMenosApto = singleton.porcMenosApt.ToString();
+            singleton.stats.porcMutacion = singleton.porcMutacion.ToString();
+            singleton.stats.tamPoblacion = singleton.tamPoblacion.ToString();
+            singleton.stats.seleccionDivina = singleton.trampa;
+            singleton.stats.resolucionImagen = singleton.objetivo.image.Width + "X" + singleton.objetivo.image.Width;
+            singleton.stats.numeroIteraciones = singleton.cantidadItereaciones.ToString();
+            singleton.stats.generaciones = new List<Individuo>(singleton.tamPoblacion / 10);
+        }
+        public static void agregarGeneracion() {
+            Individuo individuo;
+            foreach(Imagen img in instance.poblacion) {
+                individuo = new Individuo();
+                individuo.adaptabilidad = 100 - img.diferencia;
+                individuo.numeroGeneracion = instance.numGeneracion;
+                instance.stats.generaciones.Add(individuo);
             }
         }
     }
