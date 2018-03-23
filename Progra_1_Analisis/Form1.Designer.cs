@@ -409,10 +409,10 @@
             this.DistanciaGCheck.Location = new System.Drawing.Point(21, 163);
             this.DistanciaGCheck.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DistanciaGCheck.Name = "DistanciaGCheck";
-            this.DistanciaGCheck.Size = new System.Drawing.Size(116, 24);
+            this.DistanciaGCheck.Size = new System.Drawing.Size(63, 24);
             this.DistanciaGCheck.TabIndex = 5;
             this.DistanciaGCheck.TabStop = true;
-            this.DistanciaGCheck.Text = "Distancia O";
+            this.DistanciaGCheck.Text = "D-O";
             this.DistanciaGCheck.UseVisualStyleBackColor = true;
             // 
             // conTrampaCheck
