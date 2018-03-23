@@ -77,7 +77,8 @@ namespace Progra_1_Analisis
             singleton.indMenosAptoHist = singleton.poblacion[singleton.tamPoblacion - 1];
             singleton.indMasAptoHist = singleton.poblacion[0];
             updateStatistics();
-            
+            singleton.objetivo.calcularDiferencia(singleton.objetivo);
+            Console.WriteLine(singleton.objetivo.diferencia);
             bool trampa = conTrampaCheck.Checked;
             if (trampa)
             {
@@ -86,7 +87,7 @@ namespace Progra_1_Analisis
                     if (continuar)
                     {
                         trampa = false;
-                        if (i % 5 == 0)
+                        if (i % 10 == 0)
                         {
                             trampa = true;
                         }

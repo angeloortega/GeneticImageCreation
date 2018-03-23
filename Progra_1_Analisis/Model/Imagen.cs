@@ -28,8 +28,8 @@ namespace Progra_1_Analisis.Model
             {
                 if (singleton.DistGChecked)
                 {
-                    diferencia = histColor.distanciaGiullaMan(objetivo);
-                    diferencia += histForma.distanciaGiullaMan(objetivo) * 2;
+                    diferencia = histColor.distanciaO(objetivo);
+                    diferencia += histForma.distanciaO(objetivo) * 2;
 
                     diferencia /= 3;
                 }
@@ -46,7 +46,7 @@ namespace Progra_1_Analisis.Model
             {
                 if (singleton.DistGChecked)
                 {
-                    diferencia = histColor.distanciaGiullaMan(objetivo);
+                    diferencia = histColor.distanciaO(objetivo);
                 }
                 if (singleton.DistManChecked)
                 {
@@ -56,7 +56,7 @@ namespace Progra_1_Analisis.Model
             else {
                 if (singleton.DistGChecked)
                 {
-                    diferencia = histForma.distanciaGiullaMan(objetivo);
+                    diferencia = histForma.distanciaO(objetivo);
                 }
                 if (singleton.DistManChecked)
                 {

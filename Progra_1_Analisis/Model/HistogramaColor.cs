@@ -97,7 +97,7 @@ namespace Progra_1_Analisis.Model
             return diferenciaFinal / 16;
         }
 
-        public double distanciaGiullaMan(Imagen histograma)
+        public double distanciaO(Imagen histograma)
         {
             HistogramaColor objetivo = histograma.histColor;
             double resultado = 0;
@@ -107,9 +107,9 @@ namespace Progra_1_Analisis.Model
                 resultadoParcial = 0;
                 for (int i = 0; i < 64; i++)
                 {
-                    resultadoParcial += Math.Pow(sectoresDeHistograma[k][0][i] - objetivo.sectoresDeHistograma[k][0][i], 2) + Math.Pow(sectoresDeHistograma[k][1][i] - objetivo.sectoresDeHistograma[k][1][i], 2) + Math.Pow(sectoresDeHistograma[k][2][i] - objetivo.sectoresDeHistograma[k][2][i], 2) + Math.Pow(histogramaB[i] - objetivo.histogramaB[i], 2);
+                    resultadoParcial += Math.Pow(sectoresDeHistograma[k][0][i] - objetivo.sectoresDeHistograma[k][0][i], 2) + Math.Pow(sectoresDeHistograma[k][1][i] - objetivo.sectoresDeHistograma[k][1][i], 2) + Math.Pow(sectoresDeHistograma[k][2][i] - objetivo.sectoresDeHistograma[k][2][i], 2);
                 }
-                resultadoParcial = Math.Sqrt(resultadoParcial) * 100 / 3547;
+                resultadoParcial = Math.Sqrt(resultadoParcial) * 100 / 3547 * 16;
                 resultado += resultadoParcial;
             }
             resultado = resultado / 16;

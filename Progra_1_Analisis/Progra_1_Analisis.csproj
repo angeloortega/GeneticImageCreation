@@ -63,14 +63,15 @@
     <Compile Include="Logic\AlgoritmoGenetico.cs" />
     <Compile Include="Logic\Cruce.cs" />
     <Compile Include="Logic\Mutacion.cs" />
-    <Compile Include="Model\Individuo.cs" />
+    <Compile Include="Utilities\Individuo.cs" />
     <Compile Include="Model\Histograma.cs" />
     <Compile Include="Model\HistogramaColor.cs" />
     <Compile Include="Model\HistogramaForma.cs" />
     <Compile Include="Model\Imagen.cs" />
-    <Compile Include="Model\Statistic.cs" />
+    <Compile Include="Utilities\Statistic.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Benchmark.cs" />
     <Compile Include="Utilities\SingletonCache.cs" />
     <Compile Include="Utilities\Utils.cs" />
     <EmbeddedResource Include="Form1.resx">

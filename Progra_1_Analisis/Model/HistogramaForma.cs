@@ -5,9 +5,9 @@ namespace Progra_1_Analisis.Model
 {
     public class HistogramaForma : Histograma
     {
-        int[] booleanMap;
+        bool[] booleanMap;
         public HistogramaForma(Bitmap bmp) {
-            booleanMap = new int[1024];
+            booleanMap = new bool[1024];
             bool isPixelBright;
             Bitmap smallBit = Utilities.Utils.resizeImage(32, 32, bmp);
 
@@ -18,7 +18,7 @@ namespace Progra_1_Analisis.Model
                     isPixelBright = (smallBit.GetPixel(i, j).GetBrightness() < 0.5f);
                     if (isPixelBright)
                     {
-                        booleanMap[i + 32 * j] += 1;
+                        booleanMap[i + 32 * j] = true;
                     }
                 }
             }
@@ -30,12 +30,15 @@ namespace Progra_1_Analisis.Model
             double diferencia = 0;
             for (int i = 0; i < 1024; i++)
             {
-                diferencia += Math.Abs(booleanMap[i] - objetivo.booleanMap[i]);
+                if (booleanMap[i] != objetivo.booleanMap[i])
+                {
+                    diferencia++;
+                }
             }
             return (diferencia / (1024))* 100;
         }
 
-        public double distanciaGiullaMan(Imagen histograma)
+        public double distanciaO(Imagen histograma)
         {
             HistogramaForma objetivo = histograma.histForma;
             double diferencia = 0;
